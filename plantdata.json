@@ -1,0 +1,353 @@
+[
+	{
+		"Common_Name": "Zebra Plant",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "4.00 to 6.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Calathea Zebra Plant",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "1.00 to 3.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Jade Plant",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 6.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Low to Moderate"
+	},
+	{
+		"Common_Name": "Crown of Thorns",
+		"Sunlight": "Full sun",
+		"Moisture": "Low to medium",
+		"Plant_Height": "3.00 to 6.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Low to High"
+	},
+	{
+		"Common_Name": "Weeping Fig",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "40.00 to 50.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Sago Palm",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 10.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Wandering Jew",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "0.50 to 0.75 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Miniature Wax Plant",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "1.00 to 1.50 feet",
+		"Toxic_Dogs": "Unknown",
+		"Toxic_Cats": "Unknown",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Golden Pothos",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "20.00 to 40.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Snake Plant",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "2.00 to 4.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Prayer Plant",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "High",
+		"Plant_Height": "0.50 to 1.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Wax Plant Begonia",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "0.50 to 1.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Umbrella Plant",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "10.00 to 25.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Arrowhead Plant",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 6.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Rabbit's Foot Fern",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "1.00 to 3.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Peace Lily",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "1.00 to 6.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "ZZ plant",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "2.00 to 3.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Low to Moderate"
+	},
+	{
+		"Common_Name": "Parlor Palm",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "2.00 to 6.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Rubber Plant",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 9.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Ti Plant",
+		"Sunlight": "Part sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 6.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Flamingo Flower",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "1.00 to 1.50 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Coral Berry",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "4.00 to 5.00 feet",
+		"Toxic_Dogs": "Unknown",
+		"Toxic_Cats": "Unknown",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Buddhist Pine",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "10.00 to 20.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Cape fuchsia Cherry Ripe",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "2.00 to 3.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Touch Me Not",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium to high",
+		"Plant_Height": "2.00 to 5.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Aloe vera",
+		"Sunlight": "Full sun to part sun",
+		"Moisture": "Low",
+		"Plant_Height": "1.00 to 2.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Low"
+	},
+	{
+		"Common_Name": "Lucky Bamboo",
+		"Sunlight": "Part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "2.00 to 3.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Sweet Alyssum",
+		"Sunlight": "Full sun to part sun",
+		"Moisture": "Medium",
+		"Plant_Height": "0.50 to 1.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Unknown"
+	},
+	{
+		"Common_Name": "Poinsettia",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 10.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Lily of the Valley",
+		"Sunlight": "Part sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "0.50 to 1.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Low"
+	},
+	{
+		"Common_Name": "Cape Jasmine",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "0.00 to 0.50 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "Chrysanthemum/Florist's daisy",
+		"Sunlight": "Full sun",
+		"Moisture": "Medium",
+		"Plant_Height": "1.50 to 2.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Areca Palm",
+		"Sunlight": "Part shade",
+		"Moisture": "Low",
+		"Plant_Height": "12.00 to 30.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Transvaal daisy",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Low",
+		"Plant_Height": "0.50 to 3.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Peppermint",
+		"Sunlight": "Full sun to part shade",
+		"Moisture": "Medium",
+		"Plant_Height": "0.50 to 1.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "Rosemary",
+		"Sunlight": "Full sun",
+		"Moisture": "Medium",
+		"Plant_Height": "1.50 to 3.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate to High"
+	},
+	{
+		"Common_Name": "Jasmine",
+		"Sunlight": "Full sun to part sun",
+		"Moisture": "Medium",
+		"Plant_Height": "3.00 to 20.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	},
+	{
+		"Common_Name": "English Ivy",
+		"Sunlight": "Part shade to full shade",
+		"Moisture": "Medium",
+		"Plant_Height": "20.00 to 80.00 feet",
+		"Toxic_Dogs": "Yes",
+		"Toxic_Cats": "Yes",
+		"Humidity": "High"
+	},
+	{
+		"Common_Name": "House Leek",
+		"Sunlight": "Full sun",
+		"Moisture": "Low to medium",
+		"Plant_Height": "0.50 to 1.00 feet",
+		"Toxic_Dogs": "No",
+		"Toxic_Cats": "No",
+		"Humidity": "Moderate"
+	}
+]
