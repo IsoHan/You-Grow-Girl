@@ -4,7 +4,7 @@
 
 Description: Put in plants that want to grow, from seed or just maintain. Receive instructions on ideal sowing, watering etc. Then the app keeps track of what plants you have and gives reminders for when to water and other maintenance.
 
-Technical: 
+# Technical
 
 Tech Stack: 
 
