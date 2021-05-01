@@ -1,9 +1,27 @@
-const AllPlants = () => {
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+function AllPlants(props) {
+	const [plants, setPlants] = useState([]);
+
+	useEffect(() => {
+		async function getPlants() {
+			const result = await axios("http://127.0.0.1:8000/api/plants/");
+			setPlants(result.data);
+		}
+
+		getPlants();
+	}, []);
+
 	return (
 		<div>
-			<h1>All Plants</h1>
+			<ul>
+				{plants.map((plant) => (
+					<li key={plant.id}>{plant.common_name}</li>
+				))}
+			</ul>
 		</div>
 	);
-};
+}
 
 export default AllPlants;
