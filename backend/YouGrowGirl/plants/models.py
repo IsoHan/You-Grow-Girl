@@ -15,5 +15,5 @@ class Plant(models.Model):
     bloom_period = models.CharField(max_length=500, default=False, blank=True)
     humidity = models.CharField(max_length=100, default=False, blank=True)
     ph_soil = models.CharField(max_length=100, default=False, blank=True)
-    description = models.CharField(max_length=100, default=False, blank=True)
+    description = models.CharField(max_length=500, default=False, blank=True)
     image = models.ImageField(upload_to="images/", null=True, blank=True)
