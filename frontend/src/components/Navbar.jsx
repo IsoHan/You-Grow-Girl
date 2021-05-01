@@ -27,8 +27,12 @@ function Navbar() {
 					<NavLink exact={true} to="/allplants">
 						<Button text="All Plants" />
 					</NavLink>
-					<Button text="Your Garden" />
-					<Button text="Sign In" />
+					<NavLink exact={true} to="/yourgarden">
+						<Button text="Your Garden" />
+					</NavLink>
+					<NavLink exact={true} to="/login">
+						<Button text="Sign In" />
+					</NavLink>
 				</Toolbar>
 			</AppBar>
 		</div>
