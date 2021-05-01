@@ -16,4 +16,4 @@ class Plant(models.Model):
     humidity = models.CharField(max_length=100, default=False, blank=True)
     ph_soil = models.CharField(max_length=100, default=False, blank=True)
     description = models.CharField(max_length=100, default=False, blank=True)
-
+    image = models.ImageField(upload_to="images/", null=True, blank=True)

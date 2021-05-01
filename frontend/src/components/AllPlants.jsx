@@ -22,7 +22,7 @@ function AllPlants(props) {
 						key={plant.id}
 						title={plant.common_name}
 						description={plant.description}
-						imageName={plant.img_name}
+						image={plant.image}
 					/>
 				))}
 			</ul>
