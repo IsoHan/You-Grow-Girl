@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'plants',
+    'garden',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
@@ -136,6 +137,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ]
-}
+} 
 
 #SITE_ID = 1
