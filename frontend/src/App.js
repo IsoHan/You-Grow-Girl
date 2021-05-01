@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -10,15 +10,10 @@ function App() {
 	return (
 		<Router>
 			<Navbar />
-			<Route path="/" exact>
-				<Homepage />
-			</Route>
-			<Route path="/allplants">
-				<AllPlants />
-			</Route>
-			<Route path="/search">
-				<Search />
-			</Route>
+			<Route path="/allplants" component={AllPlants} />
+			<Route path="/search" component={Search} />
+			<Route path="/yourgarden" />
+			<Route path="/" exact component={Homepage} />
 			<Footer />
 		</Router>
 	);
