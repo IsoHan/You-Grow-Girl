@@ -19,8 +19,10 @@ function AllPlants(props) {
 			<ul>
 				{plants.map((plant) => (
 					<CardSingle
+						key={plant.id}
 						title={plant.common_name}
 						description={plant.description}
+						imageName={plant.img_name}
 					/>
 				))}
 			</ul>
