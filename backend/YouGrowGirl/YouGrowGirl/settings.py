@@ -40,12 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'plants',
     'gardens',
-    'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
     'allauth',
     'allauth.account',
-    'dj_rest_auth.registration'
+    'dj_rest_auth.registration',
     'rest_framework',
     'corsheaders'
 
