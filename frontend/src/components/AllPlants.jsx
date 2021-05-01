@@ -16,10 +16,12 @@ function AllPlants(props) {
 
 	return (
 		<div>
-			<CardSingle />
 			<ul>
 				{plants.map((plant) => (
-					<li key={plant.id}>{plant.common_name}</li>
+					<CardSingle
+						title={plant.common_name}
+						description={plant.description}
+					/>
 				))}
 			</ul>
 		</div>

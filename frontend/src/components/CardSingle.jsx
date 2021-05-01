@@ -1,9 +1,9 @@
-import { Card, Button } from 'react-bootstrap';
-// import ZebraPlant from '../images/plants/zebra_plant';
-import logo from '../images/plants/zebra_plant.png';
+import PropTypes from 'prop-types';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Card, Button } from 'react-bootstrap';
+import image from '../images/plants/zebra_plant.png';
 
-const CardSingle = () => {
+const CardSingle = ({ title, description }) => {
 	return (
 		<div>
 			<Card
@@ -14,16 +14,12 @@ const CardSingle = () => {
 					padding: '20px 30px',
 				}}
 			>
-				<Card.Img variant='top' src={logo} />
+				<Card.Img variant='top' src={image} />
 				<Card.Body>
 					<Card.Title style={{ color: '#437e85', fontSize: '35px' }}>
-						Zebra Plant
+						{title}
 					</Card.Title>
-					<Card.Text style={{ color: '#525252' }}>
-						A tropical plant originally from Brazil. Typically grown indoors,
-						it's lauded for its unique dark leaves that are striped with white
-						veins, as well as its colorful flowers.
-					</Card.Text>
+					<Card.Text style={{ color: '#525252' }}>{description}</Card.Text>
 					<Button style={{ backgroundColor: '#ffcecf', border: 'none' }}>
 						More info
 					</Button>
@@ -31,6 +27,17 @@ const CardSingle = () => {
 			</Card>
 		</div>
 	);
+};
+
+CardSingle.defaultProps = {
+	title: 'Default Title',
+	description:
+		'A tropical plant originally from Brazil. Typically grown indoors, its lauded for its unique dark leaves that are striped with white veins, as well as its colorful flowers.',
+};
+
+CardSingle.propTypes = {
+	title: PropTypes.string,
+	description: PropTypes.string,
 };
 
 export default CardSingle;
