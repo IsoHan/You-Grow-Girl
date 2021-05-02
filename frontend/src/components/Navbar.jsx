@@ -30,7 +30,7 @@ function Navbar() {
 					<NavLink exact={true} to="/yourgarden">
 						<Button text="Your Garden" />
 					</NavLink>
-					<NavLink exact={true} to="/login">
+					<NavLink exact={true} to="/signin">
 						<Button text="Sign In" />
 					</NavLink>
 				</Toolbar>

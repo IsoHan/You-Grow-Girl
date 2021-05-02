@@ -1,5 +1,5 @@
 import AllPlants from "./AllPlants";
-import { Container, Row, Col } from "react-grid-system";
+import { Container } from "react-grid-system";
 
 const CardsGrid = () => {
 	return (

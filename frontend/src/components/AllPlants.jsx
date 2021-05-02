@@ -45,8 +45,8 @@ function AllPlants() {
 					breakLabel={"..."}
 					breakClassName={"break-me"}
 					pageCount={pageCount}
-					marginPagesDisplayed={2}
-					pageRangeDisplayed={1}
+					marginPagesDisplayed={3}
+					pageRangeDisplayed={2}
 					onPageChange={handlePageClick}
 					containerClassName={"pagination"}
 					subContainerClassName={"pages pagination"}
