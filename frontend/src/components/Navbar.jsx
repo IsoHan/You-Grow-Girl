@@ -39,26 +39,4 @@ function Navbar() {
 	);
 }
 
-/*
-
-	
-			<div className='flex-container'>
-				<div className='links'>
-					<img src={logo} alt={''} className='logo' />
-					<h1>You Grow Girl!</h1>
-				</div>
-				<div className='links'>
-					<Link exact={true} to='/'>
-						<Button text='Home' />
-					</Link>
-					<Link exact={true} to='/allplants'>
-						<Button text='All Plants' />
-					</Link>
-					<Button text='Your Garden' />
-					<Button text='Sign In' />
-				</div>
-			</div>
-
-			*/
-
 export default Navbar;

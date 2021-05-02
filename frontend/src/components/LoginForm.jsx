@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { BrowserRouter as Link } from "react-router-dom";
 
 function SignIn({ Login, error }) {
 	const [details, setDetails] = useState({ name: "", email: "", password: "" });
@@ -12,10 +13,10 @@ function SignIn({ Login, error }) {
 	return (
 		<form onSubmit={submitHandler}>
 			<div className="form-inner">
-				<h2>Login</h2>
-				{/* ERROR! */}
+				<h2>Sign In</h2>
+				{error != "" ? <div className="error">{error}</div> : ""}
 				<div className="form-group">
-					<label htmlFor="name">Name:</label>
+					<label htmlFor="name">Username:</label>
 					<input
 						type="text"
 						name="name"
@@ -25,7 +26,7 @@ function SignIn({ Login, error }) {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="email">Email: </label>
+					<label htmlFor="email">Email:</label>
 					<input
 						type="email"
 						name="email"
@@ -34,18 +35,23 @@ function SignIn({ Login, error }) {
 						value={details.email}
 					/>
 				</div>
-			</div>
-			<div className="form-group">
-				<label htmlFor="password">Password: </label>
-				<input
-					type="password"
-					name="password"
-					id="password"
-					onChange={(e) => setDetails({ ...details, password: e.target.value })}
-					value={details.password}
-				/>
+				<div className="form-group">
+					<label htmlFor="password">Password: </label>
+					<input
+						type="password"
+						name="password"
+						id="password"
+						onChange={(e) =>
+							setDetails({ ...details, password: e.target.value })
+						}
+						value={details.password}
+					/>
+				</div>
 			</div>
 			<input type="submit" value="LOGIN" />
+			<div>
+				<a href="#!">Click here to register</a>
+			</div>
 		</form>
 	);
 }
