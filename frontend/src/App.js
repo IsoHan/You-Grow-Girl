@@ -5,14 +5,15 @@ import Footer from "./components/Footer";
 import Homepage from "./components/Homepage";
 import AllPlants from "./components/AllPlants";
 import Search from "./components/Search";
+import CardsGrid from "./components/Cards";
 
 function App() {
 	return (
 		<Router>
 			<Navbar />
-			<Route path="/allplants" component={AllPlants} />
-			<Route path="/search" component={Search} />
 			<Route path="/yourgarden" />
+			<Route path="/allplants" component={CardsGrid} />
+			<Route path="/search" component={Search} />
 			<Route path="/" exact component={Homepage} />
 			<Footer />
 		</Router>
