@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import ReactPaginate from "react-paginate";
-import "../App.css";
-import CardSingle from "./CardSingle";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import ReactPaginate from 'react-paginate';
+import '../App.css';
+import CardSingle from './CardSingle';
 
 function AllPlants() {
 	const [offset, setOffset] = useState(0);
 	const [data, setData] = useState([]);
-	const [perPage] = useState(2);
+	const [perPage] = useState(4);
 	const [pageCount, setPageCount] = useState(0);
 
 	const getData = async () => {
@@ -15,13 +15,11 @@ function AllPlants() {
 		const data = res.data;
 		const slice = data.slice(offset, offset + perPage);
 		const postData = slice.map((pd) => (
-			<div key={pd.id}>
-				<CardSingle
-					title={pd.common_name}
-					description={pd.description}
-					image={pd.image}
-				/>
-			</div>
+			<CardSingle
+				title={pd.common_name}
+				description={pd.description}
+				image={pd.image}
+			/>
 		));
 		setData(postData);
 		setPageCount(Math.ceil(data.length / perPage));
@@ -37,20 +35,20 @@ function AllPlants() {
 
 	return (
 		<div>
-			<div className="cards">{data}</div>
-			<div className="pagination-container">
+			<div className='cards'>{data}</div>
+			<div className='pagination-container'>
 				<ReactPaginate
-					previousLabel={"prev"}
-					nextLabel={"next"}
-					breakLabel={"..."}
-					breakClassName={"break-me"}
+					previousLabel={'prev'}
+					nextLabel={'next'}
+					breakLabel={'...'}
+					breakClassName={'break-me'}
 					pageCount={pageCount}
 					marginPagesDisplayed={3}
 					pageRangeDisplayed={2}
 					onPageChange={handlePageClick}
-					containerClassName={"pagination"}
-					subContainerClassName={"pages pagination"}
-					activeClassName={"active"}
+					containerClassName={'pagination'}
+					subContainerClassName={'pages pagination'}
+					activeClassName={'active'}
 				/>
 			</div>
 		</div>

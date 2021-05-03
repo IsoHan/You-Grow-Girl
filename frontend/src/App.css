@@ -57,11 +57,12 @@
 
 .cards {
 	display: flex;
+	flex-direction: row;
 	flex-wrap: wrap;
 	width: 150%;
 	margin: 0px;
 	padding: 30px;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 }
 .pagination-container {
 }
