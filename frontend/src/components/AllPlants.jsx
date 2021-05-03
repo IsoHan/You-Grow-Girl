@@ -7,7 +7,7 @@ import CardSingle from './CardSingle';
 function AllPlants() {
 	const [offset, setOffset] = useState(0);
 	const [data, setData] = useState([]);
-	const [perPage] = useState(4);
+	const [perPage] = useState(3);
 	const [pageCount, setPageCount] = useState(0);
 
 	const getData = async () => {
@@ -33,9 +33,12 @@ function AllPlants() {
 		getData();
 	}, [offset]);
 
+	console.log({ data });
+
 	return (
 		<div>
-			<div className='cards'>{data}</div>
+			{/* <div className='cards'>{data}</div> */}
+			<div class='row'>{data}</div>
 			<div className='pagination-container'>
 				<ReactPaginate
 					previousLabel={'prev'}

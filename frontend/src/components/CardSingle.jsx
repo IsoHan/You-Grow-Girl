@@ -16,7 +16,7 @@ const CardSingle = ({ title, description, image }) => {
 	}
 
 	return (
-		<Card style={{ width: '300px' }}>
+		<Card className='col-4' style={{ width: '300px' }}>
 			<Card.Img variant='top' src={image} />
 			<Card.Body>
 				<Card.Title style={{ color: '#437e85', fontSize: '35px' }}>
