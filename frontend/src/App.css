@@ -39,15 +39,11 @@
 /* ########################################## ABOVE IS CSS FOR PAGINATION */
 
 .game-board {
-	display: grid;
+	display: flex;
 	grid-template-rows: 200px 200px 200px;
 	grid-template-columns: 200px 200px 200px;
 }
 
-body {
-	display: flex;
-	justify-content: center;
-}
 .box {
 	background: #444;
 	border: 1px solid #555;

@@ -17,10 +17,10 @@ function SignIn({ Login, error }) {
 	return (
 		<form onSubmit={submitHandler}>
 			<div className="form-inner">
-				<h2>Sign In</h2>
+				<h2>Register</h2>
 				{error != "" ? <div className="error">{error}</div> : ""}
 				<div className="form-group">
-					<label htmlFor="username">Username:</label>
+					<label htmlFor="username">Create Username:</label>
 					<input
 						type="text"
 						username="username"
@@ -33,7 +33,32 @@ function SignIn({ Login, error }) {
 				</div>
 
 				<div className="form-group">
-					<label htmlFor="password">Password: </label>
+					<label htmlFor="email">Email:</label>
+					<input
+						type="text"
+						username="email"
+						id="email"
+						onChange={(e) =>
+							setDetails({ ...details, username: e.target.value })
+						}
+						value={details.username}
+					/>
+				</div>
+
+				<div className="form-group">
+					<label htmlFor="password">Create Password: </label>
+					<input
+						type="password"
+						username="password"
+						id="password"
+						onChange={(e) =>
+							setDetails({ ...details, password: e.target.value })
+						}
+						value={details.password}
+					/>
+				</div>
+				<div className="form-group">
+					<label htmlFor="password">Confirm Password: </label>
 					<input
 						type="password"
 						username="password"
@@ -45,14 +70,10 @@ function SignIn({ Login, error }) {
 					/>
 				</div>
 			</div>
-			<input type="submit" value="Sign In Now!" />
+			<input type="submit" value="Sign Up Now!" />
 			<div>
-				<Link
-					to="/register"
-					className="link"
-					style={{ textDecoration: "none" }}
-				>
-					Click here to register
+				<Link to="/signin" className="link" style={{ textDecoration: "none" }}>
+					Click here to log in
 				</Link>
 			</div>
 		</form>

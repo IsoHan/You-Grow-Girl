@@ -12,7 +12,7 @@ function Navbar() {
 						<img src={logo} alt={""} className="logo" />
 					</NavLink>
 					&nbsp;&nbsp;&nbsp;
-					<NavLink exact={true} to="/">
+					<NavLink exact={true} to="/" style={{ textDecoration: "none" }}>
 						<Typography
 							variant="h6"
 							style={{ color: "black", textDecoration: "none" }}
