@@ -120,6 +120,7 @@ form .form-group {
 
 form {
 	text-align: center;
+	padding: 20px;
 }
 div.form-group {
 	margin-left: 25%;
@@ -231,4 +232,15 @@ form .form-inner input[type="submit"]:hover {
 .link {
 	color: rgba(22, 19, 19, 0.562);
 	font-weight: 550;
+}
+
+/* Styling for threeplants image */
+
+.threeplants {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	padding: 30px;
+	margin-bottom: -32px;
 }
