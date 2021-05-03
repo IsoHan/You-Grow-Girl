@@ -6,7 +6,7 @@ from plants.serializers import PlantSerializer
 class GardenPlantSerializer(serializers.ModelSerializer):
     plant = PlantSerializer()
     class Meta:
-        fields = ('plant','owner' )
+        fields = ('id','plant','owner' )
         model = GardenPlant
  
 class GardenPlantAddSerializer(serializers.ModelSerializer):

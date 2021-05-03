@@ -5,7 +5,7 @@ import CardSingle from './CardSingle';
 const YourGarden = () => {
     const [data, setData] = useState([]);
     const [mounted,setMounted] = useState(false)
-    const token = '0cbd3ad53963332da92f39ef72e321fc821ce87a'
+    const token = '29f6e74ff332eb85c228498ad38e7df7122260aa'
     const getData = async () => {
 		const res = await axios.get(`http://127.0.0.1:8000/gardens/api/gardenplants/`,{
             headers: {
@@ -14,7 +14,7 @@ const YourGarden = () => {
         });
 		const data = res.data;
         const postData = data.map((pd) => (
-			<div key={pd.plant.id}>
+			<div key={pd.id}>
 				<CardSingle
 					title={pd.plant.common_name}
 					description={pd.plant.description}
@@ -23,7 +23,7 @@ const YourGarden = () => {
 			</div>
 		));
 		setData(postData);
-            ;
+            
     };
     useEffect(() => {
 		if (mounted === false){
