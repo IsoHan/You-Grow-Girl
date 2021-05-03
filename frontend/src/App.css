@@ -55,14 +55,10 @@
 
 /* ########################################## ABOVE IS CSS FOR CENTRE-ALIGNING ALL CONTENT */
 
-.cards {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+.card-styling {
 	width: 150%;
 	margin: 0px;
 	padding: 30px;
-	/* justify-content: space-between; */
 }
 .pagination-container {
 }

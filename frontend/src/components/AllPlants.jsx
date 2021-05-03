@@ -3,11 +3,13 @@ import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import '../App.css';
 import CardSingle from './CardSingle';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 function AllPlants() {
 	const [offset, setOffset] = useState(0);
 	const [data, setData] = useState([]);
-	const [perPage] = useState(3);
+	const [perPage] = useState(9);
 	const [pageCount, setPageCount] = useState(0);
 
 	const getData = async () => {
@@ -36,9 +38,8 @@ function AllPlants() {
 	console.log({ data });
 
 	return (
-		<div>
-			{/* <div className='cards'>{data}</div> */}
-			<div class='row'>{data}</div>
+		<Container>
+			<Row>{data}</Row>
 			<div className='pagination-container'>
 				<ReactPaginate
 					previousLabel={'prev'}
@@ -54,7 +55,7 @@ function AllPlants() {
 					activeClassName={'active'}
 				/>
 			</div>
-		</div>
+		</Container>
 	);
 }
 
