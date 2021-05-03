@@ -15,7 +15,7 @@ function AllPlants() {
 	const getData = async () => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/`);
 		const data = res.data;
-		const slice = data.slice(offset, offset + perPage);
+		const slice = data.slice(offset * perPage, offset * perPage + perPage);
 		const postData = slice.map((pd) => (
 			<CardSingle
 				title={pd.common_name}
@@ -28,7 +28,7 @@ function AllPlants() {
 	};
 	const handlePageClick = (e) => {
 		const selectedPage = e.selected;
-		setOffset(selectedPage + 1);
+		setOffset(selectedPage);
 	};
 
 	useEffect(() => {
