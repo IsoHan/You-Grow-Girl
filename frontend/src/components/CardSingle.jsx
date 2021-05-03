@@ -37,7 +37,7 @@ const CardSingle = ({ title, description, image }) => {
 					</Card.Text>
 					<Row
 						className='align-items-center'
-						style={{ padding: '0px', margin: '0px' }}
+						style={{ margin: '0px', padding: '0px' }}
 					>
 						<Col lg={5} style={{ margin: '0px', padding: '0px' }}>
 							<Button
