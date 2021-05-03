@@ -11,6 +11,7 @@ django-cors==0.1
 django-cors-headers==3.7.0
 django-rest-knox==4.1.0
 djangorestframework==3.12.4
+django_restful_admin==1.1.3
 idna==2.10
 oauthlib==3.1.0
 Pillow==8.2.0
