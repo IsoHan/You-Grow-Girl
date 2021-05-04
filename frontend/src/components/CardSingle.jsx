@@ -7,9 +7,11 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import '../App.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import axios from 'axios'
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const CardSingle = ({ id,title, description, image }) => {
+	var plantURL = `/plantinfo/${id}`
 	function MyImageComponent() {
 		const { src } = useImage({
 			srcList: '../images/plants/zebra_plant.png',
@@ -53,6 +55,7 @@ const CardSingle = ({ id,title, description, image }) => {
 						style={{ margin: '0px', padding: '0px' }}
 					>
 						<Col lg={5} style={{ margin: '0px', padding: '0px' }}>
+							<Link to={plantURL} >
 							<Button
 								style={{
 									backgroundColor: '#ffcecf',
@@ -62,6 +65,8 @@ const CardSingle = ({ id,title, description, image }) => {
 							>
 								More info
 							</Button>
+							</Link>
+							
 						</Col>
 						<Col lg={7} style={{ margin: '0px', padding: '0px' }}>
 							<Button

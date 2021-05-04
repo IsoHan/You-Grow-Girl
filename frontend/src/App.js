@@ -10,6 +10,7 @@ import Search from "./components/Search";
 import SignIn from "./components/LoginForm";
 import Register from "./components/RegisterForm";
 import YourGarden from "./components/YourGarden";
+import SinglePlantPage from "./components/SinglePlantPage"
 
 function App() {
 	// test fake login details
@@ -61,6 +62,7 @@ function App() {
 					</Route>
 					<Route path="/register" component={Register} />
 					<Route path="/" exact component={Homepage} />
+					<Route path= "/plantinfo/:id" component= {SinglePlantPage} />
 					<Footer />
 				</Router>
 			)}
