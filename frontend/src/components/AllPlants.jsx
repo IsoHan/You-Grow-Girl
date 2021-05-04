@@ -17,6 +17,7 @@ function AllPlants() {
 	const getData = async (searchQuery) => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/`);
 		const data2 = res.data;
+		console.log(data2)
 		if (!searchQuery && (allData.length === 38 || allData.length === 0)) {
 			setAllData(data2);
 			normalSlice(data2);
@@ -66,7 +67,7 @@ function AllPlants() {
 	}, [offset]);
 
 	return (
-		<div>
+		<div className="font-link">
 		<Search onSearch={getData} />
 		<Container>
 			<Row>{data}</Row>

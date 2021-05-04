@@ -15,10 +15,10 @@ function Register({ Login, error }) {
 	};
 
 	return (
-		<>
+		<div className="font-link">
 			<form onSubmit={submitHandler}>
 				<div className="form-inner">
-					<h2>Register</h2>
+					<h2 className='page-title'>Register</h2>
 					{error != "" ? <div className="error">{error}</div> : ""}
 					<div className="form-group">
 						<label htmlFor="username">Create Username:</label>
@@ -83,7 +83,7 @@ function Register({ Login, error }) {
 				</div>
 			</form>
 			<img src={plants} alt={""} className="threeplants" />
-		</>
+		</div>
 	);
 }
 
