@@ -5,6 +5,7 @@ import '../App.css';
 import CardSingle from './CardSingle';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Pagination from 'react-bootstrap/Pagination';
 
 function AllPlants() {
 	const [offset, setOffset] = useState(0);
@@ -33,9 +34,17 @@ function AllPlants() {
 
 	useEffect(() => {
 		getData();
-	}, [offset]);
+	}, [offset]); // getData() called every time 'offset' changes
 
-	console.log({ data });
+	let active = 2;
+	let items = [];
+	for (let number = 1; number < 5; number++) {
+		items.push(
+			<Pagination.Item key={number} active={number === active}>
+				{number}
+			</Pagination.Item>
+		);
+	}
 
 	return (
 		<Container>
@@ -55,6 +64,11 @@ function AllPlants() {
 					activeClassName={'active'}
 				/>
 			</div>
+			<Pagination style={{ paddingLeft: '50%' }}>
+				<Pagination.Prev />
+				{items}
+				<Pagination.Next />
+			</Pagination>
 		</Container>
 	);
 }
