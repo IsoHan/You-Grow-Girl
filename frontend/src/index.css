@@ -221,6 +221,51 @@ form .form-inner input[type="submit"]:hover {
 	top: 2%;
 }
 
+/* Search Bar */
+#search-bar{
+	height: 70%;
+	width: 500px;
+	background: transparent;
+	color: #525252;
+	border-color:#fececf;
+	border-radius: 5px;
+	font-size: 16px;
+	text-align: center; 
+  }
+
+  ::placeholder{
+	  color:#525252;
+	  font-family:inherit;
+	  font-size:16px;
+  }
+
+  #search-bar:hover {
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+	cursor: text;
+  }
+  
+  #searchButton {
+	border-color: #fececf;
+	color:#525252;
+	font-size: 16px;
+	width: 100px;
+	height: 70%;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: inherit;
+	margin: 20px;
+  }
+  #form-control {
+    margin: 0px auto;
+    width: 500px;
+    height: 50px;
+	display:flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+
 /* Styling for Footer */
 
 .footer {
