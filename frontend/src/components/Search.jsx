@@ -1,19 +1,29 @@
-import { Navbar } from 'react-bootstrap';
+import {useState} from 'react'
 
-const Search = () => {
+const Search = ({onSearch}) => {
+	const [searchQuery, setSearchQuery] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+    
+        if (!searchQuery) {
+          alert('Please search something')
+          return
+        }
+
+        onSearch({ searchQuery })
+        setSearchQuery('')
+    }	
+
 	return (
 		<div>
 			<h1>Search for a plant</h1>
-
-			<Navbar>
-				<Navbar.Brand href='#home'>Navbar with text</Navbar.Brand>
-				<Navbar.Toggle />
-				<Navbar.Collapse className='justify-content-end'>
-					<Navbar.Text>
-						Signed in as: <a href='#login'>Mark Otto</a>
-					</Navbar.Text>
-				</Navbar.Collapse>
-			</Navbar>
+			<form className='search-form' onSubmit={onSubmit}>
+				<div className='form-control'>
+					<input className='search-bar' type="text" placeholder='Search for a plant...' value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} />
+				</div>
+				<button className='searchButton' type="submit" value='Search Plants'>Search</button>
+			</form>
 		</div>
 	);
 };

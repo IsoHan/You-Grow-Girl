@@ -1,6 +1,6 @@
-import logo from "../images/logo.png";
+import logo from "../images/logo3.png";
 import Button from "./Button";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
 function Navbar() {
