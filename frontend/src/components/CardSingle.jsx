@@ -29,10 +29,10 @@ const CardSingle = ({ title, description, image }) => {
 			>
 				<Card.Img variant='top' src={image} />
 				<Card.Body>
-					<Card.Title style={{ color: '#437e85', fontSize: '30px' }}>
+					<Card.Title id='plant-title'>
 						{title}
 					</Card.Title>
-					<Card.Text style={{ color: '#525252', fontSize: '14px' }}>
+					<Card.Text>
 						{description}
 					</Card.Text>
 					<Row
@@ -44,7 +44,6 @@ const CardSingle = ({ title, description, image }) => {
 								style={{
 									backgroundColor: '#ffcecf',
 									border: 'none',
-									fontSize: '14px',
 								}}
 							>
 								More info
@@ -55,7 +54,6 @@ const CardSingle = ({ title, description, image }) => {
 								style={{
 									backgroundColor: '#1cab7c',
 									border: 'none',
-									fontSize: '14px',
 								}}
 							>
 								Add to Garden

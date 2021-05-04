@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,13 +10,35 @@ import { NavLink } from "react-router-dom";
 import homepageimage from "../images/homepageimage.png";
 import search from "../images/search.png";
 import planticon2 from "../images/planticon2.png";
-import homeplant from "../images/homeplant.png";
 import plant1 from "../images/plant1.png";
 import plant2 from "../images/plant2.png";
 import plant3 from "../images/plant3.png";
 import HomeCard from "./HomeCard";
+import CarouselComp from './CarouselComp';
 
 const Homepage = () => {
+	const [data, setData] = useState([]);
+	
+	const getData = async () => {
+		const res = await axios.get(`http://127.0.0.1:8000/api/plants/`);
+		const data2 = res.data;
+		console.log(data2)
+		const weeklyPlants = data2.filter((pd) => (
+			pd.id === 11 || pd.id === 31 || pd.id === 25 ))
+		const postData = weeklyPlants.map((pd) => (
+			<CarouselComp
+				title={pd.common_name}
+				description={pd.description}
+				image={pd.image}
+			/>
+		));
+		setData(postData);
+	}
+	
+	useEffect(() => {
+		getData();	
+	}, []);
+	
 	return (
 		<div className="font-link">
 			<Container>
@@ -25,14 +49,14 @@ const Homepage = () => {
 						className="homepage-top"
 					>
 						<div>
-							<h2 className="home-title">
+							<h2 className="page-title">
 								<b>Plants made easy</b>
 							</h2>
 							<br />
-							<p style={{ fontWeight: "200", fontSize: "20px" }}>
+							<p style={{ fontSize: "20px" }}>
 								You Grow Girl helps you get the best for your planty friend
 							</p>
-							<NavLink to="/">
+							<NavLink to="/signin">
 								<Button
 									style={{ backgroundColor: "#1cab7c", borderColor: "#1cab7c" }}
 								>
@@ -54,7 +78,7 @@ const Homepage = () => {
 							style={{ height: "150px" }}
 							fluid
 						/>
-						<h5>Search our database for your plant</h5>
+						<p>Search our database for your plant</p>
 						<h6 className="font-two">
 							Get instructions on how to care for your plant
 						</h6>
@@ -66,7 +90,7 @@ const Homepage = () => {
 							style={{ height: "150px" }}
 							fluid
 						/>
-						<h5>Add plants to your garden</h5>
+						<p>Add plants to your garden</p>
 						<h6 className="font-two">
 							For regular access and watering reminders
 						</h6>
@@ -74,98 +98,27 @@ const Homepage = () => {
 				</Row>
 				<br />
 				<Row>
-					<Carousel>
+					<Carousel indicators={false} nextIcon={false} prevIcon={false} pause={'hover'} interval={3000} fade={true}>
 						<Carousel.Item>
-							<Container>
-								<Row>
-									<Col md={6} xs={12}>
-										<Image
-											className="w-100"
-											src={homeplant}
-											alt="First slide"
-										/>
-									</Col>
-									<Col
-										md={6}
-										xs={12}
-										className=" w-100 plant-week homepage-top"
-									>
-										<h3>Plants of the Week</h3>
-										<p></p>
-										<h2>Cheese Plant</h2>
-										<p></p>
-										<h5>
-											With huge, glossy, dark green leaves, Monstera deliciosa,
-											also known by its common name “Swiss cheese plant”, is a
-											striking addition to any room.
-										</h5>
-									</Col>
-								</Row>
-							</Container>
+							{data[0]}
 						</Carousel.Item>
 						<Carousel.Item>
-							<Container>
-								<Row>
-									<Col md={6} xs={12} className="thirty">
-										<Image
-											className="w-100"
-											src={homeplant}
-											alt="First slide"
-										/>
-									</Col>
-									<Col md={6} xs={12} className="w-100 plant-week homepage-top">
-										<h3>Plants of the Week</h3>
-										<p></p>
-										<h2>Cheese Plant</h2>
-										<p></p>
-										<h5>
-											With huge, glossy, dark green leaves, Monstera deliciosa,
-											also known by its common name “Swiss cheese plant,” is a
-											striking addition to any room.
-										</h5>
-									</Col>
-								</Row>
-							</Container>
+							{data[1]}
 						</Carousel.Item>
 						<Carousel.Item>
-							<Container>
-								<Row>
-									<Col md={6} xs={12}>
-										<Image
-											className="w-100"
-											src={homeplant}
-											alt="First slide"
-										/>
-									</Col>
-									<Col
-										md={6}
-										xs={12}
-										className=" w-100 plant-week homepage-top"
-									>
-										<h3>Plants of the Week</h3>
-										<p></p>
-										<h2>Cheese Plant</h2>
-										<p></p>
-										<h5>
-											With huge, glossy, dark green leaves, Monstera deliciosa,
-											also known by its common name “Swiss cheese plant,” is a
-											striking addition to any room.
-										</h5>
-									</Col>
-								</Row>
-							</Container>
+							{data[2]}
 						</Carousel.Item>
 					</Carousel>
 				</Row>
 				<br />
 				<Row>
-					<Col md={4} sm={6} xs={12}>
+					<Col lg={4} md={6} sm={12} >
 						<HomeCard text="SAVE PLANTS" image={plant1} fluid />
 					</Col>
-					<Col md={4} sm={6} xs={12}>
+					<Col lg={4} md={6} sm={12} >
 						<HomeCard text="+ TLC" image={plant2} fluid />
 					</Col>
-					<Col md={4} sm={6} xs={12}>
+					<Col lg={4} md={6} sm={12} >
 						<HomeCard text="= PROFIT" image={plant3} fluid />
 					</Col>
 				</Row>

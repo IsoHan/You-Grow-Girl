@@ -15,10 +15,10 @@ function SignIn({ Login, error }) {
 	};
 
 	return (
-		<>
+		<div className="font-link">
 			<form onSubmit={submitHandler}>
 				<div className="form-inner">
-					<h2>Sign In</h2>
+					<h2 className='page-title'><b>Sign In</b></h2>
 					{error != "" ? <div className="error">{error}</div> : ""}
 					<div className="form-group">
 						<label htmlFor="username">Username:</label>
@@ -58,7 +58,7 @@ function SignIn({ Login, error }) {
 				</div>
 			</form>
 			<img src={plants} alt={""} className="threeplants" />
-		</>
+		</div>
 	);
 }
 
