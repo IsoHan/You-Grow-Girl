@@ -46,8 +46,10 @@ function AllPlants() {
 	
 	const normalSlice = async (datal) => {
 		const slice = datal.slice(offset * perPage, offset * perPage + perPage);
-		const postData = slice.map((pd) => (
+		const postData = slice.map((pd,index) => (
 			<CardSingle
+				key={index}
+				id= {pd.id}
 				title={pd.common_name}
 				description={pd.description}
 				image={pd.image}

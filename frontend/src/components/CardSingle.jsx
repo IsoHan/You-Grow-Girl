@@ -7,8 +7,9 @@ import CardColumns from 'react-bootstrap/CardColumns';
 import '../App.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import axios from 'axios'
 
-const CardSingle = ({ title, description, image }) => {
+const CardSingle = ({ id,title, description, image }) => {
 	function MyImageComponent() {
 		const { src } = useImage({
 			srcList: '../images/plants/zebra_plant.png',
@@ -16,6 +17,18 @@ const CardSingle = ({ title, description, image }) => {
 
 		return <img src={src} alt={''} />;
 	}
+
+	const AddToGarden = async (id) => {
+		const token = 'f8e90f2caa0179b2f05ca8e7a628e0e83b70af3c';
+		var data = {plant: `${id}`};
+		const res = await axios.post(`http://127.0.0.1:8000/gardens/api/gardenplants/`,data, {
+				headers: {
+					'Authorization': `Token ${token}`
+				}
+			}
+			);
+	
+}
 
 	return (
 		<Col lg={4} md={6} sm={12} style={{ marginTop: '30px' }}>
@@ -52,6 +65,7 @@ const CardSingle = ({ title, description, image }) => {
 						</Col>
 						<Col lg={7} style={{ margin: '0px', padding: '0px' }}>
 							<Button
+							onClick = {() => AddToGarden(id)}
 								style={{
 									backgroundColor: '#1cab7c',
 									border: 'none',
