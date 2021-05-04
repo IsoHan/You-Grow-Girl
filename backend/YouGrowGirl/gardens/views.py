@@ -4,15 +4,15 @@ from .serializers import GardenPlantSerializer,GardenPlantAddSerializer
 # Create your views here.
 
 class GardenPlantViewset(viewsets.ModelViewSet):
-    #serializer_class = GardenPlantSerializer
+    # serializer_class = GardenPlantSerializer
     permissions_classes = [permissions.IsAuthenticated]
 
-    #only get the plantsGrowing of that user 
+    # only get the plantsGrowing of that user 
     def get_queryset(self):
         return self.request.user.plants.all() 
     
 
-    #asign user as owner when create plant growing object
+    # assign user as owner when create plant growing object
     def perform_create(self, serializer):
         #plant = Plant.objects.get 
         serializer.save(owner=self.request.user)
