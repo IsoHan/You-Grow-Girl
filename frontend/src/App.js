@@ -60,7 +60,6 @@ function App() {
 						<SignIn Login={Login} error={error} />
 					</Route>
 					<Route path="/register" component={Register} />
-					<Route path="/search" component={Search} />
 					<Route path="/" exact component={Homepage} />
 					<Footer />
 				</Router>
