@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'allauth.account',
     'dj_rest_auth.registration',
     'rest_framework',
+    'django_restful_admin', 
     'corsheaders'
+ 
 
 ]
 

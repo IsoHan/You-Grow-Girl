@@ -9,6 +9,7 @@ import Search from "./components/Search";
 //import CardsGrid from "./components/Cards";
 import SignIn from "./components/LoginForm";
 import Register from "./components/RegisterForm";
+import YourGarden from "./components/YourGarden";
 
 function App() {
 	// test fake login details
@@ -53,7 +54,7 @@ function App() {
 			) : (
 				<Router>
 					<Navbar />
-					<Route path="/yourgarden" />
+					<Route path="/yourgarden" component= {YourGarden}/>
 					<Route path="/allplants" component={AllPlants} />
 					<Route path="/signin">
 						<SignIn Login={Login} error={error} />
