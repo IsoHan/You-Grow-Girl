@@ -44,12 +44,12 @@ body {
 	align-items: center;
 }
 
-.navs{
+.navs {
 	justify-content: flex-end;
 }
 
-.titles{
-	justify-content:flex-start;
+.titles {
+	justify-content: flex-start;
 }
 
 /*###################################### Styling for login form below */
@@ -144,7 +144,7 @@ form .form-inner .form-group {
 	transition: 0.4s;
 }
 .form-inner .form-group:focus-within label {
-	color: #fececf;
+	color: #1cab7c;
 }
 form .form-inner .form-group input {
 	display: block;
@@ -179,8 +179,8 @@ form .form-inner input[type="submit"]:hover {
 .home-icons {
 	text-align: center;
 }
-.home-icons p{
-	font-size:20px;
+.home-icons p {
+	font-size: 20px;
 	font-weight: 400;
 }
 
@@ -196,7 +196,7 @@ form .form-inner input[type="submit"]:hover {
 	color: #437e85;
 }
 .plant-week p {
-	font-size:20px;
+	font-size: 20px;
 }
 
 .homecard {
@@ -208,7 +208,7 @@ form .form-inner input[type="submit"]:hover {
 	border-color: #fececf;
 	border-radius: 15px;
 	text-align: center;
-	font-family:'IBM Plex Sans'
+	font-family: "IBM Plex Sans";
 }
 
 .homecard-img {
@@ -217,31 +217,31 @@ form .form-inner input[type="submit"]:hover {
 }
 
 /* Search Bar */
-#search-bar{
+#search-bar {
 	height: 70%;
 	width: 500px;
 	background: transparent;
 	color: #525252;
-	border-color:#fececf;
+	border-color: #fececf;
 	border-radius: 5px;
 	/* font-size: 16px; */
-	text-align: center; 
-  }
+	text-align: center;
+}
 
-  ::placeholder{
-	  color:#525252;
-	  font-family:inherit;
-	  font-size:16px;
-  }
+::placeholder {
+	color: #525252;
+	font-family: inherit;
+	font-size: 16px;
+}
 
-  #search-bar:hover {
-	box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+#search-bar:hover {
+	box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 	cursor: text;
-  }
-  
-  #searchButton {
+}
+
+#searchButton {
 	border-color: #fececf;
-	color:#525252;
+	color: #525252;
 	font-size: 16px;
 	width: 100px;
 	height: 70%;
@@ -250,12 +250,12 @@ form .form-inner input[type="submit"]:hover {
 	text-decoration: none;
 	font-family: inherit;
 	margin: 20px;
-  }
-  #form-control {
-    margin: 0px auto;
-    width: 500px;
-    height: 50px;
-	display:flex;
+}
+#form-control {
+	margin: 0px auto;
+	width: 500px;
+	height: 50px;
+	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 }
@@ -266,7 +266,6 @@ form .form-inner input[type="submit"]:hover {
 	color: #437e85;
 	font-size: 30px;
 }
-
 
 /* Styling for Footer */
 
@@ -279,8 +278,8 @@ form .form-inner input[type="submit"]:hover {
 .link {
 	color: #525252;
 }
-.link:hover{
-	color:#437e85;
+.link:hover {
+	color: #437e85;
 }
 
 /* Styling for threeplants image */

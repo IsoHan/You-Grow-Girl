@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
 			alert(
 				"A server/network error occurred. " +
 					"Looks like CORS might be the problem. " +
-					"Sorry about this - we will get it fixed shortly."
+					"Sorry about this - You Grow Girl minions are working hard to fix this for you ..."
 			);
 			return Promise.reject(error);
 		}
@@ -71,11 +71,11 @@ axiosInstance.interceptors.response.use(
 						});
 				} else {
 					console.log("Refresh token is expired", tokenParts.exp, now);
-					window.location.href = "/login/";
+					window.location.href = "/signin/";
 				}
 			} else {
 				console.log("Refresh token not available.");
-				window.location.href = "/login/";
+				window.location.href = "/signin/";
 			}
 		}
 
