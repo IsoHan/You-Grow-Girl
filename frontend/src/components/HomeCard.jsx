@@ -2,10 +2,10 @@ import Image from 'react-bootstrap/Image';
 
 const HomeCard = ({ image, text }) => {
     return (
-        <div className='homecard'>
+        <div className='homecard font-links'>
             <Image src={image} alt='' className='homecard-img'/>
             <p></p>
-            <h6>{text}</h6>
+            <p className='font-links'>{text}</p>
         </div>
     )
 }
