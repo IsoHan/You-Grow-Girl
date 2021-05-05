@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+
+import CardSingleDetailed from './CardSingleDetailed';
 
 const SinglePlantPage = (props) => {
 	let id = props.match.params.id;
@@ -21,12 +24,14 @@ const SinglePlantPage = (props) => {
 	});
 	return (
 		<div>
-			<img src={info.image} alt={info.common_name}></img>
-			<h1 style={{ color: '#437e85', fontSize: '30px' }}>
-				{' '}
-				{info.common_name}{' '}
-			</h1>
-			<p> {info.description} </p>
+			<Container>
+				<CardSingleDetailed
+					id={info.id}
+					title={info.common_name}
+					description={info.description}
+					image={info.image}
+				/>
+			</Container>
 			<h2> Facts and care:</h2>
 			<ul>
 				<li>{info.sunlight} </li>
