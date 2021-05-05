@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import plants from "../images/threeplants.png";
+import { useHistory } from "react-router-dom";
+import axiosInstance from "./axiosFetch";
 
-function SignIn({ Login, error }) {
+function SignIn({ username, password, error }) {
+	const history = useHistory();
 	const [details, setDetails] = useState({
 		username: "",
 		password: "",
@@ -10,15 +13,31 @@ function SignIn({ Login, error }) {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+		console.log(details);
 
-		Login(details);
+		axiosInstance
+			.post(`token/`, {
+				username: details.username,
+				password: details.password,
+			})
+			.then((res) => {
+				localStorage.setItem("access_token", res.data.access);
+				localStorage.setItem("refresh_token", res.data.refresh);
+				axiosInstance.defaults.headers["Authorization"] =
+					"JWT " + localStorage.getItem("access_token");
+				history.push("/");
+				//console.log(res);
+				//console.log(res.data);
+			});
 	};
 
 	return (
 		<div className="font-link">
 			<form onSubmit={submitHandler}>
 				<div className="form-inner">
-					<h2 className='page-title'><b>Sign In</b></h2>
+					<h2 className="page-title">
+						<b>Sign In</b>
+					</h2>
 					{error != "" ? <div className="error">{error}</div> : ""}
 					<div className="form-group">
 						<label htmlFor="username">Username:</label>

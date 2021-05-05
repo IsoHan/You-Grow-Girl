@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import plants from "../images/threeplants.png";
+import axiosInstance from "./axiosFetch";
 
-function Register({ Login, error }) {
+function SignIn({ Login, error }) {
 	const [details, setDetails] = useState({
 		username: "",
 		password: "",
@@ -10,18 +11,18 @@ function Register({ Login, error }) {
 
 	const submitHandler = (e) => {
 		e.preventDefault();
-
-		Login(details);
 	};
 
 	return (
 		<div className="font-link">
 			<form onSubmit={submitHandler}>
 				<div className="form-inner">
-					<h2 className='page-title'>Register</h2>
-					{error != "" ? <div className="error">{error}</div> : ""}
+					<h2 className="page-title">
+						<b>Sign In</b>
+					</h2>
+					{error !== "" ? <div className="error">{error}</div> : ""}
 					<div className="form-group">
-						<label htmlFor="username">Create Username:</label>
+						<label htmlFor="username">Username:</label>
 						<input
 							type="text"
 							username="username"
@@ -34,32 +35,7 @@ function Register({ Login, error }) {
 					</div>
 
 					<div className="form-group">
-						<label htmlFor="email">Email:</label>
-						<input
-							type="text"
-							username="email"
-							id="email"
-							onChange={(e) =>
-								setDetails({ ...details, username: e.target.value })
-							}
-							value={details.username}
-						/>
-					</div>
-
-					<div className="form-group">
-						<label htmlFor="password">Create Password: </label>
-						<input
-							type="password"
-							username="password"
-							id="password"
-							onChange={(e) =>
-								setDetails({ ...details, password: e.target.value })
-							}
-							value={details.password}
-						/>
-					</div>
-					<div className="form-group">
-						<label htmlFor="password">Confirm Password: </label>
+						<label htmlFor="password">Password: </label>
 						<input
 							type="password"
 							username="password"
@@ -71,14 +47,14 @@ function Register({ Login, error }) {
 						/>
 					</div>
 				</div>
-				<input type="submit" value="Sign Up Now!" />
+				<input type="submit" value="Sign In Now!" />
 				<div>
 					<Link
-						to="/signin"
+						to="/register"
 						className="link"
 						style={{ textDecoration: "none" }}
 					>
-						Click here to log in
+						Click here to register
 					</Link>
 				</div>
 			</form>
@@ -87,4 +63,4 @@ function Register({ Login, error }) {
 	);
 }
 
-export default Register;
+export default SignIn;
