@@ -9,8 +9,19 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { FaWater, FaCloudSun, FaLeaf, FaFlask } from 'react-icons/fa';
 
-const CardSingleDetailed = ({ id, title, description, image }) => {
+const CardSingleDetailed = ({
+	id,
+	title,
+	description,
+	image,
+	sunlight,
+	moisture,
+	bloom_period,
+	ph_soil,
+	plant_habit,
+}) => {
 	var plantURL = `/plantinfo/${id}`;
 
 	const AddToGarden = async (id) => {
@@ -43,8 +54,32 @@ const CardSingleDetailed = ({ id, title, description, image }) => {
 				</Col>
 				<Col lg={6}>
 					<Card.Body>
-						<Card.Title id='plant-title'>{title}</Card.Title>
+						<Card.Title
+							id='plant-title'
+							style={{ fontSize: '40px', marginTop: '60px' }}
+						>
+							{title}
+						</Card.Title>
+						<div
+							style={{
+								marginBottom: '20px',
+								marginTop: '-10px',
+								fontSize: '14px',
+							}}
+						>
+							{plant_habit}
+						</div>
 						<Card.Text>{description}</Card.Text>
+						<hr />
+						<Card.Text style={{ marginBottom: '30px' }}>
+							<FaCloudSun style={{ color: 'pink' }} /> Light: {sunlight}
+							<br />
+							<FaWater style={{ color: 'pink' }} /> Moisture: {moisture}
+							<br />
+							<FaLeaf style={{ color: 'pink' }} /> Bloom period: {bloom_period}
+							<br />
+							<FaFlask style={{ color: 'pink' }} /> Soil pH: {ph_soil}
+						</Card.Text>
 						<Button
 							onClick={() => AddToGarden(id)}
 							style={{

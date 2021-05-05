@@ -24,22 +24,19 @@ const SinglePlantPage = (props) => {
 	});
 	return (
 		<div>
-			<Container>
+			<Container style={{ marginBottom: '30px' }}>
 				<CardSingleDetailed
 					id={info.id}
 					title={info.common_name}
 					description={info.description}
 					image={info.image}
+					sunlight={info.sunlight}
+					moisture={info.moisture}
+					bloom_period={info.bloom_period}
+					ph_soil={info.ph_soil}
+					plant_habit={info.plant_habit}
 				/>
 			</Container>
-			<h2> Facts and care:</h2>
-			<ul>
-				<li>{info.sunlight} </li>
-				<li>moisture: {info.moisture}</li>
-				<li>type: {info.plant_habit}</li>
-				<li> bloom time: {info.bloom_period} </li>
-				<li>soil ph: {info.ph_soil} </li>
-			</ul>
 		</div>
 	);
 };
