@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import { Link } from "react-router-dom";
+import axiosInstance from "./axiosFetch";
 
 const CardSingle = ({ id,title, description, image }) => {
 	var plantURL = `/plantinfo/${id}`
@@ -23,13 +24,15 @@ const CardSingle = ({ id,title, description, image }) => {
 	const AddToGarden = async (id) => {
 		
 		var data = {plant: `${id}`};
-		const res = await axios.post(`http://127.0.0.1:8000/gardens/api/gardenplants/`,data, {
+/* 		const res = await axios.post(`http://127.0.0.1:8000/gardens/api/gardenplants/`,data, {
 				headers: {
 					'Authorization':  "JWT " + localStorage.getItem("access_token")
 					
 			}
 		}
-			);
+			); */
+		axiosInstance.post("gardens/gardenplants/",data);
+		
 	
 }
 
