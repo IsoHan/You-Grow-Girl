@@ -2,6 +2,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django_restful_admin import admin as api_admin 
+import session_csrf
+session_csrf.monkeypatch()
 
 """
 urlpatterns = [
@@ -19,6 +22,7 @@ from rest_framework_simplejwt.views import (
 )
 
 urlpatterns = [
+    path('apiadmin/', admin.site.urls),
     path('', include('plants.urls')),
     path('api/gardens/', include('gardens.urls')),
    # path('api/user/', include('users.urls', namespace='users')),

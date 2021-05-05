@@ -17,3 +17,5 @@ class AuthRequiredMiddleware(object):
         if not request.user.is_authenticated() and request.path != redirect_url:
             return HttpResponseRedirect(redirect_url)
         return None
+
+

@@ -21,7 +21,7 @@ function Register({ username, email, password, password2, error }) {
 				username: details.username,
 				email: details.email,
 				password1: details.password1,
-				password2: details.password2,
+				//Second password field omitted from post request - ONLY for front-end verification
 			})
 			.then((res) => {
 				history.push("/allplants/");
@@ -31,10 +31,10 @@ function Register({ username, email, password, password2, error }) {
 	};
 
 	return (
-		<div className='font-link'>
+		<div className="font-link">
 			<form onSubmit={submitHandler}>
 				<div className="form-inner">
-				<h2 className="page-title">
+					<h2 className="page-title">
 						<b>Register</b>
 					</h2>
 					{error !== "" ? <div className="error">{error}</div> : ""}
