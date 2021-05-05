@@ -38,7 +38,7 @@ function SignIn({ username, password, error }) {
 					<h2 className="page-title">
 						<b>Sign In</b>
 					</h2>
-					{error != "" ? <div className="error">{error}</div> : ""}
+					{error !== "" ? <div className="error">{error}</div> : ""}
 					<div className="form-group">
 						<label htmlFor="username">Username:</label>
 						<input

@@ -8,7 +8,7 @@ import AllPlants from "./components/AllPlants";
 //import Search from "./components/Search";
 //import CardsGrid from "./components/Cards";
 import SignIn from "./components/LoginForm";
-import Register from "./components/RegisterForm";
+import SignUp from "./components/RegisterForm";
 import YourGarden from "./components/YourGarden";
 import Logout from "./components/Logout";
 
@@ -25,7 +25,7 @@ function App() {
 				<Route path="/signin">
 					<SignIn Login={SignIn} />
 				</Route>
-				<Route path="/register" component={Register} />
+				<Route path="/register" component={SignUp} />
 				<Route path="/" exact component={Homepage} />
 				<Footer />
 			</Router>

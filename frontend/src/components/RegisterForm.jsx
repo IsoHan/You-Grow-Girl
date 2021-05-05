@@ -1,28 +1,43 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import plants from "../images/threeplants.png";
 import axiosInstance from "./axiosFetch";
 
-function SignIn({ Login, error }) {
+function Register({ username, email, password, password2, error }) {
+	const history = useHistory();
 	const [details, setDetails] = useState({
 		username: "",
-		password: "",
+		email: "",
+		password1: "",
+		password2: "",
 	});
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+
+		axiosInstance
+			.post("/token", {
+				username: details.username,
+				email: details.email,
+				password1: details.password1,
+				password2: details.password2,
+			})
+			.then((res) => {
+				history.push("/allplants/");
+				console.log(res);
+				console.log(res.data);
+			});
 	};
 
 	return (
-		<div className="font-link">
+		<>
 			<form onSubmit={submitHandler}>
 				<div className="form-inner">
-					<h2 className="page-title">
-						<b>Sign In</b>
-					</h2>
+					<h2>Register</h2>
 					{error !== "" ? <div className="error">{error}</div> : ""}
 					<div className="form-group">
-						<label htmlFor="username">Username:</label>
+						<label htmlFor="username">Create Username:</label>
 						<input
 							type="text"
 							username="username"
@@ -35,32 +50,57 @@ function SignIn({ Login, error }) {
 					</div>
 
 					<div className="form-group">
-						<label htmlFor="password">Password: </label>
+						<label htmlFor="email">Email:</label>
+						<input
+							type="text"
+							email="email"
+							id="email"
+							onChange={(e) =>
+								setDetails({ ...details, email: e.target.value })
+							}
+							value={details.email}
+						/>
+					</div>
+
+					<div className="form-group">
+						<label htmlFor="password">Create Password: </label>
 						<input
 							type="password"
-							username="password"
-							id="password"
+							username="password1"
+							id="password1"
 							onChange={(e) =>
-								setDetails({ ...details, password: e.target.value })
+								setDetails({ ...details, password1: e.target.value })
 							}
-							value={details.password}
+							value={details.password1}
+						/>
+					</div>
+					<div className="form-group">
+						<label htmlFor="password">Confirm Password: </label>
+						<input
+							type="password"
+							username="password2"
+							id="password2"
+							onChange={(e) =>
+								setDetails({ ...details, password2: e.target.value })
+							}
+							value={details.password2}
 						/>
 					</div>
 				</div>
-				<input type="submit" value="Sign In Now!" />
+				<input type="submit" value="Sign Up Now!" />
 				<div>
 					<Link
-						to="/register"
+						to="/signin"
 						className="link"
 						style={{ textDecoration: "none" }}
 					>
-						Click here to register
+						Click here to log in
 					</Link>
 				</div>
 			</form>
-			<img src={plants} alt={""} className="threeplants" />
-		</div>
+			<img src={plants} alt={"!"} className="threeplants" />
+		</>
 	);
 }
 
-export default SignIn;
+export default Register;
