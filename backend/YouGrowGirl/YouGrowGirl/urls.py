@@ -3,8 +3,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django_restful_admin import admin as api_admin 
-import session_csrf
-session_csrf.monkeypatch()
 
 """
 urlpatterns = [
