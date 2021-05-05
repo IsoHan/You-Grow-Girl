@@ -46,12 +46,12 @@ const CardSingle = ({ id,title, description, image }) => {
 					borderRadius: '30px',
 				}}
 			>
-				<Card.Img variant='top' src={image} />
+				<Card.Img variant='top' src={image} style={{height:'300px'}}/>
 				<Card.Body>
-					<Card.Title id='plant-title'>
-						{title}
+					<Card.Title id='plant-title' style={{height:'65px'}}>
+					<p>{title}</p>
 					</Card.Title>
-					<Card.Text>
+					<Card.Text  style={{height:'200px'}}>
 						{description}
 					</Card.Text>
 					<Row

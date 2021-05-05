@@ -6,6 +6,9 @@ import CardSingle from './CardSingle';
 import Search from './Search';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Image from "react-bootstrap/Image";
+import forwardarrow from "../images/forwardarrow.png";
+import backarrow from "../images/backarrow.png";
 
 function AllPlants() {
 	const [offset, setOffset] = useState(0);
@@ -75,8 +78,10 @@ function AllPlants() {
 			<Row>{data}</Row>
 			<div className='pagination-container'>
 				<ReactPaginate
-					previousLabel={'prev'}
-					nextLabel={'next'}
+					previousLabel={<Image src={backarrow} style={{width:'15px', top:'50%', position:'absolute', left: '50%',
+					transform: 'translate(-50%, -50%)'}} />}
+					nextLabel={<Image src={forwardarrow} style={{width:'15px', top:'50%', position:'absolute', left: '50%',
+					transform: 'translate(-50%, -50%)'}} />}
 					breakLabel={'...'}
 					breakClassName={'break-me'}
 					pageCount={pageCount}

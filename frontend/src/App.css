@@ -4,14 +4,15 @@
 	list-style: none;
 	outline: none;
 	padding-left: 200px;
+	justify-content: center;
 }
 .pagination > .active > a {
-	background-color: #47ccde;
-	border-color: #47ccde;
+	background-color: #fececf;
+	border-color: #fececf;
 	color: #fff;
 }
 .pagination > li > a {
-	border: 1px solid #47ccde;
+	border: 1px solid #fececf;
 	padding: 5px 10px;
 	outline: none;
 	cursor: pointer;
@@ -22,19 +23,26 @@
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-	background-color: #47ccde;
-	border-color: #47ccde;
+	background-color: #fececf;
+	border-color: #fececf;
 	outline: none;
 }
 .pagination > li > a,
 .pagination > li > span {
-	color: #47ccde;
+	color: #fececf;
 }
 .pagination > li:first-child > a,
-.pagination > li:first-child > span,
+.pagination > li:first-child > span {
+	border-radius: 5px 0px 0px 5px;
+	align-items: center;
+	position:relative;
+}
+
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
-	border-radius: unset;
+	border-radius: 0px 5px 5px 0px;
+	align-items: center;
+	position:relative;
 }
 
 /* ########################################## ABOVE IS CSS FOR PAGINATION */
@@ -61,5 +69,4 @@
 	margin: 0px;
 	padding: 30px;
 }
-.pagination-container {
-}
+
