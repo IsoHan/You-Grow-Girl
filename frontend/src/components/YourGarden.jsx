@@ -5,11 +5,10 @@ import CardSingle from './CardSingle';
 const YourGarden = () => {
     const [data, setData] = useState([]);
     const [mounted,setMounted] = useState(false)
-    const token = 'f8e90f2caa0179b2f05ca8e7a628e0e83b70af3c'
     const getData = async () => {
 		const res = await axios.get(`http://127.0.0.1:8000/gardens/api/gardenplants/`,{
             headers: {
-                'Authorization': `Token ${token}`
+                'Authorization':   "JWT " + localStorage.getItem("access_token")
             }
         });
 		const data = res.data;

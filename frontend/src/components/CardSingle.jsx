@@ -21,13 +21,14 @@ const CardSingle = ({ id,title, description, image }) => {
 	}
 
 	const AddToGarden = async (id) => {
-		const token = 'f8e90f2caa0179b2f05ca8e7a628e0e83b70af3c';
+		
 		var data = {plant: `${id}`};
 		const res = await axios.post(`http://127.0.0.1:8000/gardens/api/gardenplants/`,data, {
 				headers: {
-					'Authorization': `Token ${token}`
-				}
+					'Authorization':  "JWT " + localStorage.getItem("access_token")
+					
 			}
+		}
 			);
 	
 }
