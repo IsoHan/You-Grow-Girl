@@ -30,6 +30,10 @@ function App() {
 		setLoggedIn(true);
 	};
 
+	const handleLogout = () => {
+		setLoggedIn(false);
+	};
+
 	return (
 		<div className='App'>
 			<Router>
@@ -37,10 +41,10 @@ function App() {
 				<Route path='/yourgarden' component={YourGarden} />
 				<Route path='/allplants' component={AllPlants} />
 				<Route path='/logout'>
-					<SignIn Logout={Logout} />
+					<Logout handleLogout={handleLogout} />
 				</Route>
 				<Route path='/signin'>
-					<SignIn Login={SignIn} handleLogin={handleLogin} />
+					<SignIn handleLogin={handleLogin} />
 				</Route>
 				<Route path='/register' component={SignUp} />
 				<Route path='/' exact component={Homepage} />
