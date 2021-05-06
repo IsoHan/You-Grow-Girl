@@ -15,7 +15,7 @@ const Search = ({onSearch, onRestore, searched}) => {
 		<div>
 			<form id='search-form' onSubmit={onSubmit}>
 				<div id='form-control'>
-					<input id='search-bar' type="text" placeholder='Search for a plant...' value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} />
+					<input id='search-bar' type="text" placeholder='Search for a plant...' onFocus={(e) => e.target.placeholder = ""} onBlur={(e) => e.target.placeholder = "Search for a plant..."} value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} />
 					<button id='searchButton' type="submit" value='Search Plants'>Search</button>
 					{
 						searched && (<button onClick={onRestore} id='restore' style={{width: '150px'}}>
