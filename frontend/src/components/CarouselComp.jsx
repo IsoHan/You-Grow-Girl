@@ -2,8 +2,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
-const CarouselComp = ({ title, image, description }) => {
+const CarouselComp = ({ title, image, description, id }) => {
+    var plantURL = `/plantinfo/${id}`;
+
     return (
         <div>
             <Container>
@@ -29,6 +33,16 @@ const CarouselComp = ({ title, image, description }) => {
                         <p>
                             {description}
                         </p>
+                        <Link to={plantURL}>
+                            <Button
+                                style={{
+                                    backgroundColor: "#ffcecf",
+                                    border: "none",
+                                }}
+                            >
+                                More info
+                            </Button>
+                        </Link>
                     </Col>
                 </Row>
             </Container>

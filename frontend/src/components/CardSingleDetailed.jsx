@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaWater, FaCloudSun, FaLeaf, FaFlask } from 'react-icons/fa';
-
+import { useEffect } from 'react'
 const CardSingleDetailed = ({
 	id,
 	title,
@@ -36,7 +36,7 @@ const CardSingleDetailed = ({
 				},
 			}
 		);
-	};
+	};	
 
 	return (
 		<Card

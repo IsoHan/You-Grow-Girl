@@ -30,6 +30,7 @@ const Homepage = () => {
 				title={pd.common_name}
 				description={pd.description}
 				image={pd.image}
+				id={pd.id}
 			/>
 		));
 		setData(postData);
@@ -55,6 +56,11 @@ const Homepage = () => {
 							<br />
 							<p style={{ fontSize: "20px" }}>
 								You Grow Girl helps you get the best for your planty friend
+							</p>
+							<p>
+								Here at You Grow Girl we help you care for your plants in the best possible way. <br/>
+								Find information about the plants that will suit you best, and how to grow them to be healthy, tall, and strong. <br/>
+								Discover Your Garden to save your plants and keep all of your information in one convenient place.
 							</p>
 							<NavLink to="/signin">
 								<Button
@@ -113,13 +119,19 @@ const Homepage = () => {
 				<br />
 				<Row>
 					<Col lg={4} md={6} sm={12} >
-						<HomeCard text="SAVE PLANTS" image={plant1} fluid />
+						<HomeCard 
+						text="Learn to grow your plants from a seed in the best conditions for them" 
+						image={plant1} fluid />
 					</Col>
 					<Col lg={4} md={6} sm={12} >
-						<HomeCard text="+ TLC" image={plant2} fluid />
+						<HomeCard 
+						text="Care for your plants with proper sunlight conditions, water schedule, and know when they'll bloom" 
+						image={plant2} fluid />
 					</Col>
 					<Col lg={4} md={6} sm={12} >
-						<HomeCard text="= PROFIT" image={plant3} fluid />
+						<HomeCard 
+						text="Reap the rewards of your gorgeous, healthy plants!" 
+						image={plant3} fluid />
 					</Col>
 				</Row>
 			</Container>

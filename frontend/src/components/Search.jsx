@@ -5,11 +5,6 @@ const Search = ({onSearch}) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-    
-        // if (!searchQuery) {
-        //   alert('Please search something')
-        //   return
-        // }
 
         onSearch({ searchQuery })
         setSearchQuery('')

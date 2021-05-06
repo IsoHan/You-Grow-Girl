@@ -33,6 +33,7 @@ const CardSingle = ({ id, title, description, image }) => {
 		axiosInstance.post("gardens/gardenplants/", data);
 	};
 
+
 	return (
 		<Col lg={4} md={6} sm={12} style={{ marginTop: "30px" }}>
 			<Card
@@ -70,7 +71,7 @@ const CardSingle = ({ id, title, description, image }) => {
 								onClick={() => AddToGarden(id)}
 								style={{
 									backgroundColor: "#1cab7c",
-									border: "none",
+									border: "none"
 								}}
 							>
 								Add to Garden

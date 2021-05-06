@@ -5,6 +5,7 @@ const HomeCard = ({ image, text }) => {
         <div className='homecard font-links'>
             <Image src={image} alt='' className='homecard-img'/>
             <p></p>
+            <br/>
             <p className='font-links'>{text}</p>
         </div>
     )

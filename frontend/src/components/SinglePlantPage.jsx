@@ -13,7 +13,25 @@ const SinglePlantPage = (props) => {
 	const getplant = async () => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/${id}/`);
 		setMounted(true);
-		const data2 = res.data;
+		var data2 = res.data;
+		var no
+		if (data2.moisture === 'Low'){
+			no=14
+		}
+		else if (data2.moisture === 'Low to medium'){
+			no=11
+		}
+		else if (data2.moisture === 'Medium'){
+			no=7
+		}
+		else if (data2.moisture === 'Medium to high'){
+			no=4
+		}
+		else if (data2.moisture === 'High'){
+			no=2
+		}
+		data2.moisture=`Water every ${no} days`
+		console.log(data2)
 		setInfo(data2);
 	};
 
