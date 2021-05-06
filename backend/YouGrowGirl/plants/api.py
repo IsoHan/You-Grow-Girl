@@ -8,7 +8,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
 
-
 # Plant Viewset - a viewset allows us to create a CRUD API without providing explicit 
 # methods for functionality so don't need to define explicit routes, can use Default Router
 # see: https://www.youtube.com/watch?v=Uyei2iDA4Hs 14:25
@@ -22,10 +21,7 @@ class PlantViewset(viewsets.ModelViewSet):
     serializer_class = PlantSerializer
 
 
-############################ Registeration API #############################
-
-
-
+############################ Registeration api_view #############################
 
 
 @api_view(['POST',])

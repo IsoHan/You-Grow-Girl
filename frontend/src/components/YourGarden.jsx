@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CardSingle from "./CardSingle";
-import axiosInstance from "./axiosFetch";
+//import axiosInstance from "./axiosFetch";
 
 const YourGarden = () => {
 	const [data, setData] = useState([]);

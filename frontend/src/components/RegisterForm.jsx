@@ -1,33 +1,45 @@
+import { Alert } from "bootstrap";
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import plants from "../images/threeplants.png";
 import axiosInstance from "./axiosFetch";
+//import AlertDismissible from "./AlertDismissible";
 
-function Register({ username, email, password, password2, error }) {
+function Register({ username, email, password, password1, error }) {
 	const history = useHistory();
 	const [details, setDetails] = useState({
 		username: "",
 		email: "",
+		password: "",
 		password1: "",
-		password2: "",
 	});
 
 	const submitHandler = (e) => {
 		e.preventDefault();
+		console.log(details);
 
-		axiosInstance
-			.post("/token", {
-				username: details.username,
-				email: details.email,
-				password1: details.password1,
-				//Second password field omitted from post request - ONLY for front-end verification
-			})
-			.then((res) => {
-				history.push("/allplants/");
-				console.log(res);
-				console.log(res.data);
-			});
+		if (details.password === details.password1) {
+			axiosInstance
+				.post("/register", {
+					username: details.username,
+					email: details.email,
+					password: details.password,
+					//Second password field omitted from post request - ONLY for front-end verification
+				})
+				.then((res) => {
+					alert(
+						// eslint-disable-next-line no-multi-str
+						"Successfully registered - please sign in with your new details to begin exploring our plants!"
+					);
+					history.push("/signin/");
+					console.log(res);
+					console.log(res.data);
+				});
+		} else {
+			alert("please enter matching passwords!");
+			history.push("/register");
+		}
 	};
 
 	return (
@@ -68,24 +80,24 @@ function Register({ username, email, password, password2, error }) {
 						<label htmlFor="password">Create Password: </label>
 						<input
 							type="password"
-							username="password1"
-							id="password1"
+							password="password"
+							id="password"
 							onChange={(e) =>
-								setDetails({ ...details, password1: e.target.value })
+								setDetails({ ...details, password: e.target.value })
 							}
-							value={details.password1}
+							value={details.password}
 						/>
 					</div>
 					<div className="form-group">
 						<label htmlFor="password">Confirm Password: </label>
 						<input
 							type="password"
-							username="password2"
-							id="password2"
+							password="password1"
+							id="password1"
 							onChange={(e) =>
-								setDetails({ ...details, password2: e.target.value })
+								setDetails({ ...details, password1: e.target.value })
 							}
-							value={details.password2}
+							value={details.password1}
 						/>
 					</div>
 				</div>
