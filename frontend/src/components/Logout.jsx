@@ -25,7 +25,7 @@ export default function Logout({ handleLogout }) {
 				<Col>
 					<div style={{ height: '350px', padding: '100px' }}>
 						<h2
-							className='page-title text-center'
+							className='page-title'
 							style={{
 								textAlign: 'center',
 							}}

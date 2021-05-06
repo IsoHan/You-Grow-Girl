@@ -81,12 +81,15 @@ function AllPlants({ loggedIn }) {
 
 	return (
 		<div className='font-link'>
-			<Search
-				onSearch={getData}
-				onRestore={onRestore}
-				searched={allData.length !== 38 ? true : false}
-			/>
 			<Container>
+				<h2 className='page-title text-center' style={{ marginTop: '20px' }}>
+					All Plants
+				</h2>
+				<Search
+					onSearch={getData}
+					onRestore={onRestore}
+					searched={allData.length !== 38 ? true : false}
+				/>
 				<Row>{data}</Row>
 				<div className='pagination-container'>
 					<ReactPaginate
