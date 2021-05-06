@@ -28,6 +28,7 @@ function YourGarden() {
 			<GardenPlantCard
 				key={index}
 				id= {pd.id}
+				plant_id = {pd.plant.id}
 				title={pd.plant.common_name}
 				description={pd.plant.description}
 				image={pd.plant.image}
