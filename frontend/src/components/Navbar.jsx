@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
 import { store } from 'react-notifications-component';
+import Avatar from 'react-avatar';
 
 const useStyles = makeStyles({
 	header: {
@@ -35,13 +36,13 @@ const handleGardenRedirect = () => {
 	});
 };
 
-function Navbar({ loggedIn }) {
+function Navbar({ loggedIn, loggedInUser }) {
 	const classes = useStyles();
+	console.log(localStorage.getItem('access_token'));
 
 	return (
 		<div>
-			<ReactNotification
-			/>
+			<ReactNotification />
 			<AppBar position='static' className={classes.header}>
 				<Toolbar>
 					<Container>
@@ -99,6 +100,14 @@ function Navbar({ loggedIn }) {
 									</NavLink>
 								)}
 							</Col>
+							{loggedIn && (
+								<Avatar
+									name={loggedInUser}
+									round={true}
+									size={50}
+									color='#fececf'
+								/>
+							)}
 						</Row>
 					</Container>
 				</Toolbar>

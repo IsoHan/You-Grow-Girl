@@ -16,6 +16,7 @@ export default function Logout({ handleLogout }) {
 		localStorage.removeItem('refresh_token');
 		axiosInstance.defaults.headers['Authorization'] = null;
 		history.push('/logout');
+		localStorage.removeItem('loggedin_username');
 		handleLogout();
 	});
 

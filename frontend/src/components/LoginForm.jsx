@@ -28,7 +28,8 @@ function SignIn({ username, password, error, handleLogin }) {
 				history.push('/');
 				//console.log(res);
 				//console.log(res.data);
-				handleLogin();
+				localStorage.setItem('loggedin_username', details.username);
+				handleLogin(details.username);
 			});
 	};
 
