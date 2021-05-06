@@ -24,7 +24,14 @@ function YourGarden() {
 		);
 		const data = res.data;
 		const slice = data.slice(offset * perPage, offset * perPage + perPage);
-		const postData = slice.map((pd, index) => (
+
+		if (slice.length===0){
+			const noPlants = <p>You don't currently have any plants growing in you garden. Please look through our 
+				plant collection to add plants to your garden. 
+			</p>
+			setData(noPlants)
+		}else{
+		const postData = slice.map((pd,index) => (
 			<GardenPlantCard
 				key={index}
 				id={pd.id}
@@ -36,7 +43,7 @@ function YourGarden() {
 			/>
 		));
 		setData(postData);
-		setPageCount(Math.ceil(data.length / perPage));
+		setPageCount(Math.ceil(data.length / perPage));}
 	};
 
 	const handlePageClick = (e) => {
@@ -80,6 +87,7 @@ function YourGarden() {
 					activeClassName={'active'}
 				/>
 			</div>
+
 		</Container>
 	);
 }
