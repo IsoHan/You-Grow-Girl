@@ -10,7 +10,12 @@ import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { FaWater, FaCloudSun, FaLeaf, FaFlask } from 'react-icons/fa';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import { store } from 'react-notifications-component';
+import axiosInstance from './axiosFetch';
+
 const CardSingleDetailed = ({
 	id,
 	title,
@@ -21,22 +26,46 @@ const CardSingleDetailed = ({
 	bloom_period,
 	ph_soil,
 	plant_habit,
+	loggedIn,
 }) => {
 	var plantURL = `/plantinfo/${id}`;
 
 	const AddToGarden = async (id) => {
-		const token = 'f8e90f2caa0179b2f05ca8e7a628e0e83b70af3c';
 		var data = { plant: `${id}` };
-		const res = await axios.post(
-			`http://127.0.0.1:8000/gardens/api/gardenplants/`,
-			data,
-			{
-				headers: {
-					Authorization: `Token ${token}`,
-				},
-			}
-		);
-	};	
+		axiosInstance.post('gardens/gardenplants/', data);
+	};
+
+	const handleAddToGarden = () => {
+		store.addNotification({
+			title: 'Planted!',
+			message: `${title} has been planted in Your Garden!`,
+			type: 'success',
+			insert: 'top',
+			container: 'top-right',
+			animationIn: ['animate__animated', 'animate__fadeIn'],
+			animationOut: ['animate__animated', 'animate__fadeOut'],
+			dismiss: {
+				duration: 5000,
+				onScreen: true,
+			},
+		});
+	};
+
+	const handleRequireSignin = () => {
+		store.addNotification({
+			title: 'Sign In',
+			message: `You must be signed in to add a ${title} to Your Garden.`,
+			type: 'info',
+			insert: 'top',
+			container: 'top-right',
+			animationIn: ['animate__animated', 'animate__fadeIn'],
+			animationOut: ['animate__animated', 'animate__fadeOut'],
+			dismiss: {
+				duration: 5000,
+				onScreen: true,
+			},
+		});
+	};
 
 	return (
 		<Card
@@ -80,15 +109,30 @@ const CardSingleDetailed = ({
 							<br />
 							<FaFlask style={{ color: 'pink' }} /> Soil pH: {ph_soil}
 						</Card.Text>
-						<Button
-							onClick={() => AddToGarden(id)}
-							style={{
-								backgroundColor: '#1cab7c',
-								border: 'none',
-							}}
-						>
-							Add to Garden
-						</Button>
+						{loggedIn ? (
+							<Button
+								onClick={() => {
+									AddToGarden(id);
+									handleAddToGarden();
+								}}
+								style={{
+									backgroundColor: '#1cab7c',
+									border: 'none',
+								}}
+							>
+								Add to Garden
+							</Button>
+						) : (
+							<Button
+								onClick={handleRequireSignin}
+								style={{
+									backgroundColor: '#1cab7c',
+									border: 'none',
+								}}
+							>
+								Add to Garden
+							</Button>
+						)}
 					</Card.Body>
 					<small className='text-muted' style={{ fontSize: '12px' }}>
 						Last updated 3 mins ago
