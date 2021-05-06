@@ -35,14 +35,14 @@
 .pagination > li:first-child > span {
 	border-radius: 5px 0px 0px 5px;
 	align-items: center;
-	position:relative;
+	position: relative;
 }
 
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
 	border-radius: 0px 5px 5px 0px;
 	align-items: center;
-	position:relative;
+	position: relative;
 }
 
 /* ########################################## ABOVE IS CSS FOR PAGINATION */
@@ -70,3 +70,23 @@
 	padding: 30px;
 }
 
+.notification__item--info {
+	background-color: #437e85;
+	border-left: none;
+}
+
+.notification__item--info .notification__timer {
+	background-color: #437e85;
+}
+
+/* .notification__title {
+	color: #525252;
+}
+
+.notification__message {
+	color: #525252;
+} */
+
+/* .notification__item--info .notification__timer-filler {
+	background-color: #525252
+} */
