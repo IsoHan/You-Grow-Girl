@@ -1,11 +1,18 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import CardSingle from "./CardSingle";
-//import axiosInstance from "./axiosFetch";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import ReactPaginate from 'react-paginate';
+import '../App.css';
+import GardenPlantCard from './GardenPlantCard'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Pagination from 'react-bootstrap/Pagination';
 
-const YourGarden = () => {
+function YourGarden() {
+	const [offset, setOffset] = useState(0);
 	const [data, setData] = useState([]);
-	const [mounted, setMounted] = useState(false);
+	const [perPage] = useState(3);
+	const [pageCount, setPageCount] = useState(0);
+
 	const getData = async () => {
 		const res = await axios.get(
 			`http://127.0.0.1:8000/api/gardens/gardenplants/`,
@@ -15,31 +22,60 @@ const YourGarden = () => {
 				},
 			}
 		);
-
 		const data = res.data;
-		console.log(data);
-		const postData = data.map((pd) => (
-			<div key={pd.id}>
-				<CardSingle
-					title={pd.plant.common_name}
-					description={pd.plant.description}
-					image={pd.plant.image}
-				/>
-			</div>
+		const slice = data.slice(offset * perPage, offset * perPage + perPage);
+		const postData = slice.map((pd,index) => (
+			<GardenPlantCard
+				key={index}
+				id= {pd.id}
+				title={pd.plant.common_name}
+				description={pd.plant.description}
+				image={pd.plant.image}
+			/>
 		));
 		setData(postData);
+		setPageCount(Math.ceil(data.length / perPage));
 	};
+	const handlePageClick = (e) => {
+		const selectedPage = e.selected;
+		setOffset(selectedPage);
+	};
+
 	useEffect(() => {
-		if (mounted === false) {
-			getData();
-			setMounted(true);
-		}
-	}, [mounted]);
+		getData();
+	}, [offset]); // getData() called every time 'offset' changes
+
+	let active = 2;
+	let items = [];
+	for (let number = 1; number < 5; number++) {
+		items.push(
+			<Pagination.Item key={number} active={number === active}>
+				{number}
+			</Pagination.Item>
+		);
+	}
+
 	return (
-		<div>
-			<div className="cards">{data}</div>
-		</div>
+		<Container>
+			<Row>{data}</Row>
+			<div className='pagination-container'>
+				<ReactPaginate
+					previousLabel={'<'}
+					nextLabel={'>'}
+					breakLabel={'...'}
+					breakClassName={'break-me'}
+					pageCount={pageCount}
+					marginPagesDisplayed={3}
+					pageRangeDisplayed={2}
+					onPageChange={handlePageClick}
+					containerClassName={'pagination'}
+					subContainerClassName={'pages pagination'}
+					activeClassName={'active'}
+				/>
+			</div>
+
+		</Container>
 	);
-};
+}
 
 export default YourGarden;
