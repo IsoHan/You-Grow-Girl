@@ -15,29 +15,40 @@ import Logout from './components/Logout';
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
+	const [loggedInUser, setLoggedInUser] = useState('');
 
-	// Sets loggedIn state when page is loaded or refreshed
+	// Sets loggedIn, loggedInUser state when page is loaded or refreshed
 	useEffect(() => {
 		const token = localStorage.getItem('access_token');
+		const loggedin_username = localStorage.getItem('loggedin_username');
+
 		if (token) {
 			setLoggedIn(true);
 		} else {
 			setLoggedIn(false);
 		}
+
+		if (loggedin_username) {
+			setLoggedInUser(loggedin_username);
+		} else {
+			setLoggedInUser('');
+		}
 	}, []);
 
-	const handleLogin = () => {
+	const handleLogin = (username) => {
 		setLoggedIn(true);
+		setLoggedInUser(username);
 	};
 
 	const handleLogout = () => {
 		setLoggedIn(false);
+		setLoggedInUser('');
 	};
 
 	return (
 		<div className='App'>
 			<Router>
-				<Navbar loggedIn={loggedIn} />
+				<Navbar loggedIn={loggedIn} loggedInUser={loggedInUser} />
 				<Route path='/yourgarden' component={YourGarden} />
 				<Route path='/allplants'>
 					<AllPlants loggedIn={loggedIn} />

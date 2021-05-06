@@ -36,7 +36,7 @@ const handleGardenRedirect = () => {
 	});
 };
 
-function Navbar({ loggedIn }) {
+function Navbar({ loggedIn, loggedInUser }) {
 	const classes = useStyles();
 	console.log(localStorage.getItem('access_token'));
 
@@ -102,7 +102,7 @@ function Navbar({ loggedIn }) {
 							</Col>
 							{loggedIn && (
 								<Avatar
-									name='Saif Mustafa'
+									name={loggedInUser}
 									round={true}
 									size={50}
 									color='#fececf'
