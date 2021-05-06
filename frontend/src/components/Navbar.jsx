@@ -53,9 +53,15 @@ function Navbar({ loggedIn }) {
 								<NavLink exact={true} to='/allplants'>
 									<Button text='All Plants' />
 								</NavLink>
-								<NavLink exact={true} to='/yourgarden'>
-									<Button text='Your Garden' />
-								</NavLink>
+								{loggedIn ? (
+									<NavLink exact={true} to='/yourgarden'>
+										<Button text='Your Garden' />
+									</NavLink>
+								) : (
+									<NavLink exact={true} to='/signin'>
+										<Button text='Your Garden' />
+									</NavLink>
+								)}
 								{loggedIn ? (
 									<NavLink exact={true} to='/logout'>
 										<Button text='Sign Out' />
