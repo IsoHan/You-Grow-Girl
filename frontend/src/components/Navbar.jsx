@@ -5,7 +5,6 @@ import { AppBar, Toolbar, Typography, makeStyles } from '@material-ui/core';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import React, { useState, useEffect } from 'react';
 
 const useStyles = makeStyles({
 	header: {
@@ -15,18 +14,8 @@ const useStyles = makeStyles({
 	},
 });
 
-function Navbar() {
+function Navbar({ loggedIn }) {
 	const classes = useStyles();
-	const [loggedIn, setLoggedIn] = useState(false);
-
-	useEffect(() => {
-		const token = localStorage.getItem('access_token');
-		if (token) {
-			setLoggedIn(true);
-		} else {
-			setLoggedIn(false);
-		}
-	}, []);
 
 	return (
 		<div>

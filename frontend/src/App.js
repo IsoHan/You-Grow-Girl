@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -14,17 +14,33 @@ import SinglePlantPage from './components/SinglePlantPage';
 import Logout from './components/Logout';
 
 function App() {
+	const [loggedIn, setLoggedIn] = useState(false);
+
+	// Sets loggedIn state when page is loaded or refreshed
+	useEffect(() => {
+		const token = localStorage.getItem('access_token');
+		if (token) {
+			setLoggedIn(true);
+		} else {
+			setLoggedIn(false);
+		}
+	}, []);
+
+	const handleLogin = () => {
+		setLoggedIn(true);
+	};
+
 	return (
 		<div className='App'>
 			<Router>
-				<Navbar />
+				<Navbar loggedIn={loggedIn} />
 				<Route path='/yourgarden' component={YourGarden} />
 				<Route path='/allplants' component={AllPlants} />
 				<Route path='/logout'>
 					<SignIn Logout={Logout} />
 				</Route>
 				<Route path='/signin'>
-					<SignIn Login={SignIn} />
+					<SignIn Login={SignIn} handleLogin={handleLogin} />
 				</Route>
 				<Route path='/register' component={SignUp} />
 				<Route path='/' exact component={Homepage} />
