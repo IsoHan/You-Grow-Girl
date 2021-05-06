@@ -50,7 +50,10 @@ function App() {
 				</Route>
 				<Route path='/register' component={SignUp} />
 				<Route path='/' exact component={Homepage} />
-				<Route path='/plantinfo/:id' component={SinglePlantPage} />
+				<Route
+					path='/plantinfo/:id'
+					render={(props) => <SinglePlantPage {...props} loggedIn={loggedIn} />}
+				/>
 				<Footer />
 			</Router>
 		</div>
