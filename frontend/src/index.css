@@ -254,13 +254,24 @@ form .form-inner input[type="submit"]:hover {
 }
 #form-control {
 	margin: 0px auto;
-	width: 500px;
+	width: 700px;
 	height: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
 }
+#restore{
+	border-color: #fececf;
+	color: #525252;
+	font-size: 16px;
+	height: 70%;
+	border-radius: 5px;
+	cursor: pointer;
+	text-decoration: none;
+	font-family: inherit;
+	margin: 0px;
 
+}
 /* Styling for All Plants */
 #plant-title {
 	font-weight: 700;

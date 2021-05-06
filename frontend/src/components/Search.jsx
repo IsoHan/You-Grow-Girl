@@ -1,6 +1,7 @@
 import {useState} from 'react'
+import { Button } from "react-bootstrap";
 
-const Search = ({onSearch}) => {
+const Search = ({onSearch, onRestore, searched}) => {
 	const [searchQuery, setSearchQuery] = useState('')
 
     const onSubmit = (e) => {
@@ -16,6 +17,12 @@ const Search = ({onSearch}) => {
 				<div id='form-control'>
 					<input id='search-bar' type="text" placeholder='Search for a plant...' value={searchQuery}  onChange={(e) => setSearchQuery(e.target.value)} />
 					<button id='searchButton' type="submit" value='Search Plants'>Search</button>
+					{
+						searched && (<button onClick={onRestore} id='restore' style={{width: '150px'}}>
+						See All Plants
+					</button>)
+					}
+					
 				</div>
 				
 			</form>

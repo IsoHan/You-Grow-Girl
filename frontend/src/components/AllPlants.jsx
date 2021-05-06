@@ -20,8 +20,8 @@ function AllPlants() {
 	const getData = async (searchQuery) => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/`);
 		const data2 = res.data;
-		console.log(data2)
-		if (!searchQuery && (allData.length === 38 || allData.length === 0)) {
+		var searched
+		if (!searchQuery && (allData.length === 38 || allData.length === 0) ) {
 			setAllData(data2);
 			normalSlice(data2);
 			setPageCount(Math.ceil(data2.length / perPage));
@@ -29,6 +29,11 @@ function AllPlants() {
 		else if (!searchQuery) {
 			normalSlice(allData);
 			setPageCount(Math.ceil(allData.length / perPage));
+		}
+		else if (searchQuery==='other'){
+			setAllData(data2);
+			normalSlice(data2);
+			setPageCount(Math.ceil(data2.length / perPage));
 		}
 		else if (searchQuery && offset!==0){
 			const searchResult=searchQuery.searchQuery
@@ -67,13 +72,17 @@ function AllPlants() {
 		setOffset(selectedPage);
 	};
 	
+	const onRestore = () => {
+		getData('other');
+	}
+
 	useEffect(() => {
 		getData()
 	}, [offset]);
 
 	return (
 		<div className="font-link">
-		<Search onSearch={getData} />
+		<Search onSearch={getData} onRestore={onRestore} searched={allData.length!==38 ? true : false}/>
 		<Container>
 			<Row>{data}</Row>
 			<div className='pagination-container'>
