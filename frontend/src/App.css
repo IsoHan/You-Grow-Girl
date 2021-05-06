@@ -79,6 +79,15 @@
 	background-color: #437e85;
 }
 
+.notification__item--success {
+	background-color: #1cab7c;
+	border-left: none;
+}
+
+.notification__item--success .notification__timer {
+	background-color: #1cab7c;
+}
+
 /* .notification__title {
 	color: #525252;
 }

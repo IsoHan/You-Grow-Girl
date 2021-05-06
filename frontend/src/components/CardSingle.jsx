@@ -10,6 +10,9 @@ import Row from "react-bootstrap/Row";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import axiosInstance from "./axiosFetch";
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
+import { store } from 'react-notifications-component';
 
 const CardSingle = ({ id, title, description, image }) => {
 	var plantURL = `/plantinfo/${id}`;
@@ -33,6 +36,23 @@ const CardSingle = ({ id, title, description, image }) => {
 		axiosInstance.post("gardens/gardenplants/", data);
 	};
 
+	const handleAddToGarden = () => {
+		// alert('You have added this plant to garden.');
+	
+		store.addNotification({
+			title: 'Planted!',
+			message: `${title} has been planted in Garden!`,
+			type: 'success',
+			insert: 'top',
+			container: 'top-right',
+			animationIn: ['animate__animated', 'animate__fadeIn'],
+			animationOut: ['animate__animated', 'animate__fadeOut'],
+			dismiss: {
+				duration: 5000,
+				onScreen: true,
+			},
+		});
+	};
 
 	return (
 		<Col lg={4} md={6} sm={12} style={{ marginTop: "30px" }}>
@@ -68,7 +88,7 @@ const CardSingle = ({ id, title, description, image }) => {
 						</Col>
 						<Col lg={7} style={{ margin: "0px", padding: "0px" }}>
 							<Button
-								onClick={() => AddToGarden(id)}
+								onClick={() => {AddToGarden(id); handleAddToGarden();}}
 								style={{
 									backgroundColor: "#1cab7c",
 									border: "none"
