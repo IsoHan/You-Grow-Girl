@@ -70,12 +70,6 @@ const GardenPlantCard = ({
 						</Col>
 					</Row>
 				</Card.Body>
-				<small className='text-muted' style={{ fontSize: '12px' }}>
-					Last updated 3 mins ago
-				</small>
-				{/* <Card.Footer>
-					<small className='text-muted'>Last updated 3 mins ago</small>
-				</Card.Footer> */}
 			</Card>
 		</Col>
 	);

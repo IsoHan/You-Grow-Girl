@@ -147,9 +147,6 @@ const CardSingleDetailed = ({
 							</Button>
 						)}
 					</Card.Body>
-					<small className='text-muted' style={{ fontSize: '12px' }}>
-						Last updated 3 mins ago
-					</small>
 				</Col>
 			</Row>
 		</Card>
