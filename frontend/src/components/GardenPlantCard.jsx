@@ -60,7 +60,7 @@ const GardenPlantCard = ({id, plant_id,title, description, image }) => {
 									border: "none",
 								}}
 							>
-								Remove From Garden 
+								Remove
 							</Button>
 						</Col>
 					</Row>
