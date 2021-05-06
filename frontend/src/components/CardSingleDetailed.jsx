@@ -9,7 +9,14 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { FaWater, FaCloudSun, FaLeaf, FaFlask } from 'react-icons/fa';
+import {
+	FaWater,
+	FaCloudSun,
+	FaLeaf,
+	FaFlask,
+	FaDog,
+	FaCat,
+} from 'react-icons/fa';
 import { useEffect } from 'react';
 import ReactNotification from 'react-notifications-component';
 import 'react-notifications-component/dist/theme.css';
@@ -25,6 +32,8 @@ const CardSingleDetailed = ({
 	moisture,
 	bloom_period,
 	ph_soil,
+	toxic_to_dogs,
+	toxic_to_cats,
 	plant_habit,
 	loggedIn,
 }) => {
@@ -108,6 +117,10 @@ const CardSingleDetailed = ({
 							<FaLeaf style={{ color: 'pink' }} /> Bloom period: {bloom_period}
 							<br />
 							<FaFlask style={{ color: 'pink' }} /> Soil pH: {ph_soil}
+							<br />
+							<FaDog style={{ color: 'pink' }} /> Toxic to Dogs: {toxic_to_dogs}
+							<br />
+							<FaCat style={{ color: 'pink' }} /> Toxic to Cats: {toxic_to_cats}
 						</Card.Text>
 						{loggedIn ? (
 							<Button

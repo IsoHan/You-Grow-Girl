@@ -14,6 +14,8 @@ const SinglePlantPage = (props) => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/${id}/`);
 		setMounted(true);
 		var data2 = res.data;
+
+		// Convert moisture qualitative to quantitative
 		var no;
 		if (data2.moisture === 'Low') {
 			no = 14;
@@ -27,6 +29,17 @@ const SinglePlantPage = (props) => {
 			no = 2;
 		}
 		data2.moisture = `Water every ${no} days`;
+
+		// Toxicity to dogs
+		var toxicToDogs;
+		data2.toxic_to_dogs ? (toxicToDogs = 'Yes') : (toxicToDogs = 'No');
+		data2.toxic_to_dogs = toxicToDogs;
+
+		// Toxicity to cats
+		var toxicToCats;
+		data2.toxic_to_cats ? (toxicToCats = 'Yes') : (toxicToCats = 'No');
+		data2.toxic_to_cats = toxicToCats;
+
 		console.log(data2);
 		setInfo(data2);
 	};
@@ -48,6 +61,8 @@ const SinglePlantPage = (props) => {
 					moisture={info.moisture}
 					bloom_period={info.bloom_period}
 					ph_soil={info.ph_soil}
+					toxic_to_dogs={info.toxic_to_dogs}
+					toxic_to_cats={info.toxic_to_cats}
 					plant_habit={info.plant_habit}
 					loggedIn={props.loggedIn}
 				/>
