@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 import '../App.css';
-import GardenPlantCard from './GardenPlantCard'
+import GardenPlantCard from './GardenPlantCard';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Pagination from 'react-bootstrap/Pagination';
@@ -18,28 +18,34 @@ function YourGarden() {
 			`http://127.0.0.1:8000/api/gardens/gardenplants/`,
 			{
 				headers: {
-					Authorization: "JWT " + localStorage.getItem("access_token"),
+					Authorization: 'JWT ' + localStorage.getItem('access_token'),
 				},
 			}
 		);
 		const data = res.data;
 		const slice = data.slice(offset * perPage, offset * perPage + perPage);
-		const postData = slice.map((pd,index) => (
+		const postData = slice.map((pd, index) => (
 			<GardenPlantCard
 				key={index}
-				id= {pd.id}
-				plant_id = {pd.plant.id}
+				id={pd.id}
+				plant_id={pd.plant.id}
 				title={pd.plant.common_name}
 				description={pd.plant.description}
 				image={pd.plant.image}
+				handleDeletion={handleDeletion}
 			/>
 		));
 		setData(postData);
 		setPageCount(Math.ceil(data.length / perPage));
 	};
+
 	const handlePageClick = (e) => {
 		const selectedPage = e.selected;
 		setOffset(selectedPage);
+	};
+
+	const handleDeletion = () => {
+		getData();
 	};
 
 	useEffect(() => {
@@ -74,7 +80,6 @@ function YourGarden() {
 					activeClassName={'active'}
 				/>
 			</div>
-
 		</Container>
 	);
 }
