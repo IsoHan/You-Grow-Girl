@@ -39,7 +39,9 @@ function App() {
 			<Router>
 				<Navbar loggedIn={loggedIn} />
 				<Route path='/yourgarden' component={YourGarden} />
-				<Route path='/allplants' component={AllPlants} />
+				<Route path='/allplants'>
+					<AllPlants loggedIn={loggedIn} />
+				</Route>
 				<Route path='/logout'>
 					<Logout handleLogout={handleLogout} />
 				</Route>
