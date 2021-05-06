@@ -11,27 +11,14 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import axiosInstance from "./axiosFetch";
 
-const GardenPlantCard = ({ id, title, description, image }) => {
-	var plantURL = `/plantinfo/${id}`;
-	function MyImageComponent() {
-		const { src } = useImage({
-			srcList: "../images/plants/zebra_plant.png",
-		});
 
-		return <img src={src} alt={""} />;
-	}
 
-	const AddToGarden = async (id) => {
-		var data = { plant: `${id}` };
-		/* 		const res = await axios.post(`http://127.0.0.1:8000/gardens/api/gardenplants/`,data, {
-				headers: {
-					'Authorization':  "JWT " + localStorage.getItem("access_token")
-					
-			}
-		}
-			); */
-		axiosInstance.post("gardens/gardenplants/", data);
-	};
+const GardenPlantCard = ({id, plant_id,title, description, image }) => {
+	let plantURL = `/plantinfo/${plant_id}/`;
+    const RemovePlant = async () => {
+        axiosInstance.delete(`gardens/gardenplants/${id}/`);
+
+    }
 
 	return (
 		<Col lg={4} md={6} sm={12} style={{ marginTop: "30px" }}>
@@ -67,13 +54,13 @@ const GardenPlantCard = ({ id, title, description, image }) => {
 						</Col>
 						<Col lg={7} style={{ margin: "0px", padding: "0px" }}>
 							<Button
-								onClick={() => AddToGarden(id)}
+								onClick={() => RemovePlant()}
 								style={{
 									backgroundColor: "#1cab7c",
 									border: "none",
 								}}
 							>
-								Add to Garden
+								Remove From Garden 
 							</Button>
 						</Col>
 					</Row>
