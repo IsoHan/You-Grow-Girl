@@ -92,25 +92,31 @@ const Homepage = () => {
 				</Row>
 				<br />
 				<Row>
+					
 					<Col md={6} xs={12} className='home-icons'>
+						<NavLink to="/allplants">
 						<Image
 							src={search}
 							alt='Search icon'
 							style={{ height: '150px' }}
 							fluid
 						/>
+						</NavLink>
 						<p>Search our database for your plant</p>
 						<h6 className='font-two'>
 							Get instructions on how to care for your plant
 						</h6>
 					</Col>
+					
 					<Col md={6} xs={12} className='home-icons'>
+						<NavLink to="/allplants">
 						<Image
 							src={planticon2}
-							alt='Search icon'
+							alt='Plant icon'
 							style={{ height: '150px' }}
 							fluid
 						/>
+						</NavLink>
 						<p>Add plants to your garden</p>
 						<h6 className='font-two'>
 							For regular access and watering reminders
