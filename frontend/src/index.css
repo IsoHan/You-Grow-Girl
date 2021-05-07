@@ -307,3 +307,7 @@ form .form-inner input[type='submit']:hover {
 	padding: 30px;
 	margin-bottom: -32px;
 }
+
+::placeholder {
+	color: silver;
+}
