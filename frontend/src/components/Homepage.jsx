@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -14,17 +14,20 @@ import plant1 from "../images/plant1.png";
 import plant2 from "../images/plant2.png";
 import plant3 from "../images/plant3.png";
 import HomeCard from "./HomeCard";
-import CarouselComp from './CarouselComp';
+import CarouselComp from "./CarouselComp";
+import React from "react";
+import ReactDOM from "react-dom";
 
 const Homepage = () => {
 	const [data, setData] = useState([]);
-	
+
 	const getData = async () => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/`);
 		const data2 = res.data;
-		console.log(data2)
-		const weeklyPlants = data2.filter((pd) => (
-			pd.id === 11 || pd.id === 31 || pd.id === 25 ))
+		console.log(data2);
+		const weeklyPlants = data2.filter(
+			(pd) => pd.id === 11 || pd.id === 31 || pd.id === 25
+		);
 		const postData = weeklyPlants.map((pd) => (
 			<CarouselComp
 				title={pd.common_name}
@@ -34,12 +37,12 @@ const Homepage = () => {
 			/>
 		));
 		setData(postData);
-	}
-	
+	};
+
 	useEffect(() => {
-		getData();	
+		getData();
 	}, []);
-	
+
 	return (
 		<div className="font-link">
 			<Container>
@@ -58,9 +61,12 @@ const Homepage = () => {
 								You Grow Girl helps you get the best for your planty friend
 							</p>
 							<p>
-								Here at You Grow Girl we help you care for your plants in the best possible way. <br/>
-								Find information about the plants that will suit you best, and how to grow them to be healthy, tall, and strong. <br/>
-								Discover Your Garden to save your plants and keep all of your information in one convenient place.
+								Here at You Grow Girl we help you care for your plants in the
+								best possible way. <br />
+								Find information about the plants that will suit you best, and
+								how to grow them to be healthy, tall, and strong. <br />
+								Discover Your Garden to save your plants and keep all of your
+								information in one convenient place.
 							</p>
 							<NavLink to="/signin">
 								<Button
@@ -104,34 +110,41 @@ const Homepage = () => {
 				</Row>
 				<br />
 				<Row>
-					<Carousel indicators={false} nextIcon={false} prevIcon={false} pause={'hover'} interval={3000} fade={true}>
-						<Carousel.Item>
-							{data[0]}
-						</Carousel.Item>
-						<Carousel.Item>
-							{data[1]}
-						</Carousel.Item>
-						<Carousel.Item>
-							{data[2]}
-						</Carousel.Item>
+					<Carousel
+						indicators={false}
+						nextIcon={false}
+						prevIcon={false}
+						pause={"hover"}
+						interval={3000}
+						fade={true}
+					>
+						<Carousel.Item>{data[0]}</Carousel.Item>
+						<Carousel.Item>{data[1]}</Carousel.Item>
+						<Carousel.Item>{data[2]}</Carousel.Item>
 					</Carousel>
 				</Row>
 				<br />
 				<Row>
-					<Col lg={4} md={6} sm={12} >
-						<HomeCard 
-						text="Learn to grow your plants from a seed in the best conditions for them" 
-						image={plant1} fluid />
+					<Col lg={4} md={6} sm={12}>
+						<HomeCard
+							text="Learn to grow your plants from a seed in the best conditions for them"
+							image={plant1}
+							fluid
+						/>
 					</Col>
-					<Col lg={4} md={6} sm={12} >
-						<HomeCard 
-						text="Care for your plants with proper sunlight conditions, water schedule, and know when they'll bloom" 
-						image={plant2} fluid />
+					<Col lg={4} md={6} sm={12}>
+						<HomeCard
+							text="Care for your plants with proper sunlight conditions, water schedule, and know when they'll bloom"
+							image={plant2}
+							fluid
+						/>
 					</Col>
-					<Col lg={4} md={6} sm={12} >
-						<HomeCard 
-						text="Reap the rewards of your gorgeous, healthy plants!" 
-						image={plant3} fluid />
+					<Col lg={4} md={6} sm={12}>
+						<HomeCard
+							text="Reap the rewards of your gorgeous, healthy plants!"
+							image={plant3}
+							fluid
+						/>
 					</Col>
 				</Row>
 			</Container>

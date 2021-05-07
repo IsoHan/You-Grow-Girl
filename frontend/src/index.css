@@ -115,6 +115,7 @@ form .form-group {
 	display: flex;
 	width: 50%;
 	align-items: center;
+	color: red;
 }
 
 form {
@@ -260,7 +261,7 @@ form .form-inner input[type="submit"]:hover {
 	align-items: center;
 	justify-content: space-evenly;
 }
-#restore{
+#restore {
 	border-color: #fececf;
 	color: #525252;
 	font-size: 16px;
@@ -270,7 +271,6 @@ form .form-inner input[type="submit"]:hover {
 	text-decoration: none;
 	font-family: inherit;
 	margin: 0px;
-
 }
 /* Styling for All Plants */
 #plant-title {
