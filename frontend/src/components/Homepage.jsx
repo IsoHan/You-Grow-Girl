@@ -15,6 +15,8 @@ import plant2 from '../images/plant2.png';
 import plant3 from '../images/plant3.png';
 import HomeCard from './HomeCard';
 import CarouselComp from './CarouselComp';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 const Homepage = () => {
 	const [data, setData] = useState([]);

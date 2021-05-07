@@ -115,6 +115,7 @@ form .form-group {
 	display: flex;
 	width: 50%;
 	align-items: center;
+	color: red;
 }
 
 form {
