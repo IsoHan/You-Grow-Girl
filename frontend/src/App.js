@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+	Switch,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 import Navbar from "./components/Navbar";
@@ -12,6 +17,7 @@ import Register from "./components/RegisterForm";
 import YourGarden from "./components/YourGarden";
 import SinglePlantPage from "./components/SinglePlantPage";
 import Logout from "./components/Logout";
+import notFound from "./components/notFound";
 
 function App() {
 	const [loggedIn, setLoggedIn] = useState(false);
@@ -49,22 +55,29 @@ function App() {
 		<div className="App">
 			<Router>
 				<Navbar loggedIn={loggedIn} loggedInUser={loggedInUser} />
-				<Route path="/yourgarden" component={YourGarden} />
-				<Route path="/allplants">
-					<AllPlants loggedIn={loggedIn} />
-				</Route>
-				<Route path="/logout">
-					<Logout handleLogout={handleLogout} />
-				</Route>
-				<Route path="/signin">
-					<SignIn handleLogin={handleLogin} />
-				</Route>
-				<Route path="/register" component={Register} />
-				<Route path="/" exact component={Homepage} />
-				<Route
-					path="/plantinfo/:id"
-					render={(props) => <SinglePlantPage {...props} loggedIn={loggedIn} />}
-				/>
+				<Switch>
+					<Route path="/yourgarden" component={YourGarden} />
+					<Route path="/allplants">
+						<AllPlants loggedIn={loggedIn} />
+					</Route>
+					<Route path="/logout">
+						<Logout handleLogout={handleLogout} />
+					</Route>
+					<Route path="/signin">
+						<SignIn handleLogin={handleLogin} />
+					</Route>
+					<Route path="/register" component={Register} />
+					<Route path="/not-found" component={notFound} />
+					<Route
+						path="/plantinfo/:id"
+						render={(props) => (
+							<SinglePlantPage {...props} loggedIn={loggedIn} />
+						)}
+					/>
+					<Route path="/" exact component={Homepage} />
+					<Redirect to="/not-found" />
+				</Switch>
+
 				<Footer />
 			</Router>
 		</div>

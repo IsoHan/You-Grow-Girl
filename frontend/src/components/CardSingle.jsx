@@ -2,38 +2,20 @@ import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Button } from "react-bootstrap";
 // import image from '../images/plants/zebra_plant.png';
-import { useImage } from "react-image";
-import CardColumns from "react-bootstrap/CardColumns";
 import "../App.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import axiosInstance from "./axiosFetch";
-import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
 import { store } from "react-notifications-component";
-import react from "react";
+import React from "react";
 
 const CardSingle = ({ id, title, description, image, loggedIn }) => {
 	var plantURL = `/plantinfo/${id}`;
-	function MyImageComponent() {
-		const { src } = useImage({
-			srcList: "../images/plants/zebra_plant.png",
-		});
-
-		return <img src={src} alt={""} />;
-	}
-
 	const AddToGarden = async (id) => {
 		var data = { plant: `${id}` };
-		/* 		const res = await axios.post(`http://127.0.0.1:8000/gardens/api/gardenplants/`,data, {
-				headers: {
-					'Authorization':  "JWT " + localStorage.getItem("access_token")
-					
-			}
-		}
-			); */
+
 		axiosInstance.post("gardens/gardenplants/", data);
 	};
 

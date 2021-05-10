@@ -1,16 +1,24 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
+import React from "react";
 
 const Button = ({ text }) => {
 	return (
 		<div>
-			<button className='font-link' style={{display: 'inline-block',
-				border: 'none',
-				// color:'#1cab7c',
-				backgroundColor: 'transparent',
-				padding: '10px 20px',
-				margin: '5px',
-				borderRadius: '5px',
-				cursor: 'pointer'}}>{text}</button>
+			<button
+				className="font-link"
+				style={{
+					display: "inline-block",
+					border: "none",
+					// color:'#1cab7c',
+					backgroundColor: "transparent",
+					padding: "10px 20px",
+					margin: "5px",
+					borderRadius: "5px",
+					cursor: "pointer",
+				}}
+			>
+				{text}
+			</button>
 		</div>
 	);
 };

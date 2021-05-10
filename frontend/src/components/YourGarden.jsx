@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-import '../App.css';
-import GardenPlantCard from './GardenPlantCard';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Pagination from 'react-bootstrap/Pagination';
-import plants from '../images/threeplants.png';
+import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
+import ReactPaginate from "react-paginate";
+import "../App.css";
+import GardenPlantCard from "./GardenPlantCard";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Pagination from "react-bootstrap/Pagination";
+import plants from "../images/threeplants.png";
 
 function YourGarden() {
 	const [offset, setOffset] = useState(0);
@@ -16,17 +16,20 @@ function YourGarden() {
 	const [pageCount, setPageCount] = useState(0);
 	const [showImage, setShowImage] = useState(true);
 
-	const getData = async () => {
+	const getData = useCallback(async () => {
 		const res = await axios.get(
 			`http://127.0.0.1:8000/api/gardens/gardenplants/`,
 			{
 				headers: {
-					Authorization: 'JWT ' + localStorage.getItem('access_token'),
+					Authorization: "JWT " + localStorage.getItem("access_token"),
 				},
 			}
 		);
 		const data = res.data;
 		const slice = data.slice(offset * perPage, offset * perPage + perPage);
+		const handleDeletion = () => {
+			getData();
+		};
 
 		if (slice.length === 0) {
 			const noPlants = (
@@ -53,20 +56,16 @@ function YourGarden() {
 			setShowImage(false);
 			setPageCount(Math.ceil(data.length / perPage));
 		}
-	};
+	}, [offset, perPage]);
 
 	const handlePageClick = (e) => {
 		const selectedPage = e.selected;
 		setOffset(selectedPage);
 	};
 
-	const handleDeletion = () => {
-		getData();
-	};
-
 	useEffect(() => {
 		getData();
-	}, [offset]); // getData() called every time 'offset' changes
+	}, [offset, getData]); // getData() called every time 'offset' changes
 
 	let active = 2;
 	let items = [];
@@ -80,31 +79,31 @@ function YourGarden() {
 
 	return (
 		<div>
-			<Container style={{ textAlign: 'center' }}>
+			<Container style={{ textAlign: "center" }}>
 				<h2
-					className='page-title text-center'
-					style={{ marginTop: '20px', marginBottom: '15px' }}
+					className="page-title text-center"
+					style={{ marginTop: "20px", marginBottom: "15px" }}
 				>
 					Your Garden
 				</h2>
 				<Row>{data}</Row>
-				<div className='pagination-container'>
+				<div className="pagination-container">
 					<ReactPaginate
-						previousLabel={'<'}
-						nextLabel={'>'}
-						breakLabel={'...'}
-						breakClassName={'break-me'}
+						previousLabel={"<"}
+						nextLabel={">"}
+						breakLabel={"..."}
+						breakClassName={"break-me"}
 						pageCount={pageCount}
 						marginPagesDisplayed={3}
 						pageRangeDisplayed={2}
 						onPageChange={handlePageClick}
-						containerClassName={'pagination'}
-						subContainerClassName={'pages pagination'}
-						activeClassName={'active'}
+						containerClassName={"pagination"}
+						subContainerClassName={"pages pagination"}
+						activeClassName={"active"}
 					/>
 				</div>
 			</Container>
-			{showImage && <img src={plants} alt={''} className='threeplants' />}
+			{showImage && <img src={plants} alt={""} className="threeplants" />}
 		</div>
 	);
 }

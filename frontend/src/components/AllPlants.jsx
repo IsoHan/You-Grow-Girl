@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-import '../App.css';
-import CardSingle from './CardSingle';
-import Search from './Search';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Image from 'react-bootstrap/Image';
-import forwardarrow from '../images/forwardarrow.png';
-import backarrow from '../images/backarrow.png';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import ReactPaginate from "react-paginate";
+import "../App.css";
+import CardSingle from "./CardSingle";
+import Search from "./Search";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
+import forwardarrow from "../images/forwardarrow.png";
+import backarrow from "../images/backarrow.png";
 
 function AllPlants({ loggedIn }) {
 	const [offset, setOffset] = useState(0);
@@ -20,7 +20,6 @@ function AllPlants({ loggedIn }) {
 	const getData = async (searchQuery) => {
 		const res = await axios.get(`http://127.0.0.1:8000/api/plants/`);
 		const data2 = res.data;
-		var searched;
 		if (!searchQuery && (allData.length === 38 || allData.length === 0)) {
 			setAllData(data2);
 			normalSlice(data2);
@@ -28,7 +27,7 @@ function AllPlants({ loggedIn }) {
 		} else if (!searchQuery) {
 			normalSlice(allData);
 			setPageCount(Math.ceil(allData.length / perPage));
-		} else if (searchQuery === 'other') {
+		} else if (searchQuery === "other") {
 			setAllData(data2);
 			normalSlice(data2);
 			setPageCount(Math.ceil(data2.length / perPage));
@@ -72,7 +71,7 @@ function AllPlants({ loggedIn }) {
 	};
 
 	const onRestore = () => {
-		getData('other');
+		getData("other");
 	};
 
 	useEffect(() => {
@@ -80,9 +79,9 @@ function AllPlants({ loggedIn }) {
 	}, [offset]);
 
 	return (
-		<div className='font-link'>
+		<div className="font-link">
 			<Container>
-				<h2 className='page-title text-center' style={{ marginTop: '20px' }}>
+				<h2 className="page-title text-center" style={{ marginTop: "20px" }}>
 					All Plants
 				</h2>
 				<Search
@@ -91,17 +90,17 @@ function AllPlants({ loggedIn }) {
 					searched={allData.length !== 38 ? true : false}
 				/>
 				<Row>{data}</Row>
-				<div className='pagination-container'>
+				<div className="pagination-container">
 					<ReactPaginate
 						previousLabel={
 							<Image
 								src={backarrow}
 								style={{
-									width: '15px',
-									top: '50%',
-									position: 'absolute',
-									left: '50%',
-									transform: 'translate(-50%, -50%)',
+									width: "15px",
+									top: "50%",
+									position: "absolute",
+									left: "50%",
+									transform: "translate(-50%, -50%)",
 								}}
 							/>
 						}
@@ -109,23 +108,23 @@ function AllPlants({ loggedIn }) {
 							<Image
 								src={forwardarrow}
 								style={{
-									width: '15px',
-									top: '50%',
-									position: 'absolute',
-									left: '50%',
-									transform: 'translate(-50%, -50%)',
+									width: "15px",
+									top: "50%",
+									position: "absolute",
+									left: "50%",
+									transform: "translate(-50%, -50%)",
 								}}
 							/>
 						}
-						breakLabel={'...'}
-						breakClassName={'break-me'}
+						breakLabel={"..."}
+						breakClassName={"break-me"}
 						pageCount={pageCount}
 						marginPagesDisplayed={3}
 						pageRangeDisplayed={2}
 						onPageChange={handlePageClick}
-						containerClassName={'pagination'}
-						subContainerClassName={'pages pagination'}
-						activeClassName={'active'}
+						containerClassName={"pagination"}
+						subContainerClassName={"pages pagination"}
+						activeClassName={"active"}
 						forcePage={offset}
 					/>
 				</div>

@@ -39,10 +39,10 @@ const SignIn = ({ handleLogin }) => {
 					//console.log(res);
 					//console.log(res.data);
 					localStorage.setItem("loggedin_username", details.username);
-					handleLogin(details.username);
+					handleLogin(details.username); 
 				});
 		}
-	}, [errors]);
+	});
 
 	return (
 		<div className="font-link">
